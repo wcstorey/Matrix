@@ -2,8 +2,10 @@
 
 <h1><%= @post.title %> </h1>
 <!-- adding link to vote on post -->
-<%= link_to 'Upvote', votes_path, method: 'POST' %>
-<%= link_to 'Downvote', vote_path(@post.id), method: 'DELETE' %>
+<% if current_user.restrict_voting == false %>
+  <%= link_to 'Upvote', votes_path, method: 'POST' %>
+  <%= link_to 'Downvote', vote_path(@post.id), method: 'DELETE' %>
+<% end %>
 
 <p><%= @post.votes.count %> Votes</p>
 
