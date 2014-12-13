@@ -2,8 +2,7 @@
 
 <%= render partial: 'show_post_contents', :locals =>{ :@post => @post }  %>
 
-<ul>
 <% @post.children.each do |comment| %>
-  <li class="comment"><%= render partial: 'show_post_contents', :locals => { :@post => comment } %></li>
+  <%= render partial: 'show_post_contents', :locals => { :@post => comment } %>
 <% end %>
-</ul>
+
