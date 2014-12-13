@@ -9,6 +9,7 @@ class AdminsController < ApplicationController
       session[:valid] = true
       redirect_to new_admin_path
     else
+      flash[:danger] = "Wrong Key. Hint: Take the red pill"
       redirect_to admins_path
     end
   end
@@ -18,6 +19,7 @@ class AdminsController < ApplicationController
     if @admin && @admin.authenticate(params[:password])
       redirect_to admin_path(@admin)
     else
+      flash[:danger] = "You haven't entered the matrix correctly. Your username and password do not match"
       redirect_to admins_path
     end
   end
