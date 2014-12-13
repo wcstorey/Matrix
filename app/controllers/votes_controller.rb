@@ -8,6 +8,7 @@ class VotesController < ApplicationController
     @post = Post.find_by params[:id]
     @vote = @post.votes.build voteable_id: @post.id, user_id: current_user.id
     if @vote.save
+      vote_limit(@post, current_user)
       redirect_to category_post_path(@post.category_id, @post.id)
     end
   end
@@ -15,6 +16,7 @@ class VotesController < ApplicationController
 
   def destroy
     @post = Post.find params[:id]
+    vote_limit(@post, current_user)
     @post.votes.last.destroy
     redirect_to category_post_path(@post.category_id, @post.id)
 
