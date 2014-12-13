@@ -22,7 +22,9 @@ class AdminsController < ApplicationController
   end
 
   def update
-
+   @admin = Admin.find(params[:id])
+   @admin.update_attributes(username: admin_params[:username], email:admin_params[:email])
+   redirect_to admin_path(@admin)
   end
 
   def show
