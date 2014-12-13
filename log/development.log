@@ -1458,3 +1458,301 @@ Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-12 21:55:14 
 
 
 Started GET "/assets/admins.js?body=1" for 127.0.0.1 at 2014-12-12 21:55:14 -0500
+
+
+Started GET "/admins/10" for 127.0.0.1 at 2014-12-12 21:58:16 -0500
+Processing by AdminsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[35mAdmin Load (0.2ms)[0m  SELECT  "admins".* FROM "admins"  WHERE "admins"."id" = $1 LIMIT 1  [["id", 10]]
+  Rendered admins/show.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 10 LIMIT 1[0m
+Completed 200 OK in 40ms (Views: 29.6ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2014-12-12 21:58:17 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-12 21:58:17 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-12 21:58:17 -0500
+
+
+Started GET "/assets/admins.js?body=1" for 127.0.0.1 at 2014-12-12 21:58:17 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-12 21:58:17 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-12 21:58:17 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-12 21:58:17 -0500
+
+
+Started PUT "/admins/10" for 127.0.0.1 at 2014-12-12 21:58:17 -0500
+Processing by AdminsController#update as HTML
+  Parameters: {"authenticity_token"=>"TZeZgG2R/aB/U+wBcitEL7QdertDylx7gl3Myk05b24=", "id"=>"10"}
+  Rendered admins/update.html.erb within layouts/application (0.3ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 10 LIMIT 1
+Completed 200 OK in 67ms (Views: 65.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-12 21:58:18 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-12 21:58:18 -0500
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2014-12-12 21:58:18 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-12 21:58:18 -0500
+
+
+Started GET "/assets/admins.js?body=1" for 127.0.0.1 at 2014-12-12 21:58:18 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-12 21:58:18 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-12 21:58:18 -0500
+
+
+Started GET "/admins/10" for 127.0.0.1 at 2014-12-12 21:58:23 -0500
+Processing by AdminsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mAdmin Load (0.2ms)[0m  [1mSELECT  "admins".* FROM "admins"  WHERE "admins"."id" = $1 LIMIT 1[0m  [["id", 10]]
+  Rendered admins/show.html.erb within layouts/application (0.3ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 10 LIMIT 1
+Completed 200 OK in 28ms (Views: 26.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2014-12-12 21:58:24 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-12 21:58:24 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-12 21:58:24 -0500
+
+
+Started GET "/assets/admins.js?body=1" for 127.0.0.1 at 2014-12-12 21:58:24 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-12 21:58:24 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-12 21:58:24 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-12 21:58:24 -0500
+
+
+Started GET "/admins/10" for 127.0.0.1 at 2014-12-12 21:58:43 -0500
+Processing by AdminsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mAdmin Load (0.4ms)[0m  [1mSELECT  "admins".* FROM "admins"  WHERE "admins"."id" = $1 LIMIT 1[0m  [["id", 10]]
+  Rendered admins/show.html.erb within layouts/application (0.2ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 10 LIMIT 1
+Completed 200 OK in 61ms (Views: 59.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2014-12-12 21:58:43 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-12 21:58:43 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-12 21:58:43 -0500
+
+
+Started GET "/assets/admins.js?body=1" for 127.0.0.1 at 2014-12-12 21:58:43 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-12 21:58:43 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-12 21:58:43 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-12 21:58:43 -0500
+
+
+Started PUT "/admins/10" for 127.0.0.1 at 2014-12-12 21:58:44 -0500
+Processing by AdminsController#update as HTML
+  Parameters: {"authenticity_token"=>"TZeZgG2R/aB/U+wBcitEL7QdertDylx7gl3Myk05b24=", "id"=>"10"}
+  Rendered admins/update.html.erb within layouts/application (0.0ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 10 LIMIT 1[0m
+Completed 200 OK in 72ms (Views: 71.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-12 21:58:44 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-12 21:58:44 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-12 21:58:44 -0500
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2014-12-12 21:58:44 -0500
+
+
+Started GET "/assets/admins.js?body=1" for 127.0.0.1 at 2014-12-12 21:58:44 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-12 21:58:44 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-12 21:58:44 -0500
+
+
+Started GET "/admins/10" for 127.0.0.1 at 2014-12-12 21:59:06 -0500
+Processing by AdminsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[35mAdmin Load (0.1ms)[0m  SELECT  "admins".* FROM "admins"  WHERE "admins"."id" = $1 LIMIT 1  [["id", 10]]
+  Rendered admins/show.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 10 LIMIT 1[0m
+Completed 200 OK in 25ms (Views: 23.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-12 21:59:07 -0500
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2014-12-12 21:59:07 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-12 21:59:07 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-12 21:59:07 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-12 21:59:07 -0500
+
+
+Started GET "/assets/admins.js?body=1" for 127.0.0.1 at 2014-12-12 21:59:07 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-12 21:59:07 -0500
+
+
+Started GET "/admins/10" for 127.0.0.1 at 2014-12-12 21:59:07 -0500
+Processing by AdminsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[35mAdmin Load (0.2ms)[0m  SELECT  "admins".* FROM "admins"  WHERE "admins"."id" = $1 LIMIT 1  [["id", 10]]
+  Rendered admins/show.html.erb within layouts/application (0.2ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 10 LIMIT 1[0m
+Completed 200 OK in 57ms (Views: 55.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2014-12-12 21:59:07 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-12 21:59:07 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-12 21:59:07 -0500
+
+
+Started GET "/assets/admins.js?body=1" for 127.0.0.1 at 2014-12-12 21:59:07 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-12 21:59:07 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-12 21:59:07 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-12 21:59:07 -0500
+
+
+Started GET "/admins/10/edit" for 127.0.0.1 at 2014-12-12 21:59:08 -0500
+Processing by AdminsController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[35mAdmin Load (0.1ms)[0m  SELECT  "admins".* FROM "admins"  WHERE "admins"."id" = $1 LIMIT 1  [["id", 10]]
+  Rendered admins/edit.html.erb within layouts/application (38.3ms)
+Completed 500 Internal Server Error in 41ms
+
+ActionView::Template::Error (wrong number of arguments (3 for 1..2)):
+    1: <%= form_for @admin, edit_admin_path(@admin), method: :put do |f| %>
+    2:   <%= f.label :username %>
+    3:   <%= f.text_field :username %><br>
+    4:   <br>
+  app/views/admins/edit.html.erb:1:in `_app_views_admins_edit_html_erb__1839674709390380751_70299872093660'
+
+
+  Rendered /Users/zahidjethani/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /Users/zahidjethani/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/zahidjethani/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (13.3ms)
+
+
+Started GET "/admins/10/edit" for 127.0.0.1 at 2014-12-12 21:59:08 -0500
+Processing by AdminsController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mAdmin Load (0.2ms)[0m  [1mSELECT  "admins".* FROM "admins"  WHERE "admins"."id" = $1 LIMIT 1[0m  [["id", 10]]
+  Rendered admins/edit.html.erb within layouts/application (1.2ms)
+Completed 500 Internal Server Error in 5ms
+
+ActionView::Template::Error (wrong number of arguments (3 for 1..2)):
+    1: <%= form_for @admin, edit_admin_path(@admin), method: :put do |f| %>
+    2:   <%= f.label :username %>
+    3:   <%= f.text_field :username %><br>
+    4:   <br>
+  app/views/admins/edit.html.erb:1:in `_app_views_admins_edit_html_erb__1839674709390380751_70299846495860'
+
+
+  Rendered /Users/zahidjethani/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /Users/zahidjethani/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/zahidjethani/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (9.5ms)
+
+
+Started GET "/admins/10/edit" for 127.0.0.1 at 2014-12-12 21:59:41 -0500
+Processing by AdminsController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[35mAdmin Load (0.2ms)[0m  SELECT  "admins".* FROM "admins"  WHERE "admins"."id" = $1 LIMIT 1  [["id", 10]]
+  Rendered admins/edit.html.erb within layouts/application (1.8ms)
+Completed 500 Internal Server Error in 6ms
+
+ActionView::Template::Error (no implicit conversion of Symbol into Integer):
+    1: <%= form_for @admin, edit_admin_path(@admin) do |f| %>
+    2:   <%= f.label :username %>
+    3:   <%= f.text_field :username %><br>
+    4:   <br>
+  app/views/admins/edit.html.erb:1:in `_app_views_admins_edit_html_erb__1839674709390380751_70299848004880'
+
+
+  Rendered /Users/zahidjethani/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.8ms)
+  Rendered /Users/zahidjethani/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/zahidjethani/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (8.8ms)
+
+
+Started GET "/admins/10/edit" for 127.0.0.1 at 2014-12-12 22:00:18 -0500
+Processing by AdminsController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mAdmin Load (0.3ms)[0m  [1mSELECT  "admins".* FROM "admins"  WHERE "admins"."id" = $1 LIMIT 1[0m  [["id", 10]]
+  Rendered admins/edit.html.erb within layouts/application (21.5ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 10 LIMIT 1
+Completed 200 OK in 83ms (Views: 79.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2014-12-12 22:00:18 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-12 22:00:18 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-12 22:00:18 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-12 22:00:18 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-12 22:00:18 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-12 22:00:18 -0500
+
+
+Started GET "/assets/admins.js?body=1" for 127.0.0.1 at 2014-12-12 22:00:18 -0500
