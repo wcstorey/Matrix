@@ -5,11 +5,5 @@ class User < ActiveRecord::Base
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
   has_many  :posts
   has_many  :comments
-  has_many  :votes
-  after_save :restrict_voting
 
-
-  def restrict_voting
-    self.restrict_voting = false
-  end
 end
