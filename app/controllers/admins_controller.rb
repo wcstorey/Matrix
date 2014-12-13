@@ -29,6 +29,7 @@ class AdminsController < ApplicationController
 
   def show
     @admin = Admin.find params[:id]
+    @category = Category.new
     render :show
   end
 

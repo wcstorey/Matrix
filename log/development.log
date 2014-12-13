@@ -3143,3 +3143,157 @@ Started GET "/assets/admins.js?body=1" for 127.0.0.1 at 2014-12-12 22:23:01 -050
 
 
 Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-12 22:23:01 -0500
+
+
+Started GET "/admins/13/edit" for 127.0.0.1 at 2014-12-12 22:24:20 -0500
+Processing by AdminsController#edit as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mAdmin Load (0.2ms)[0m  [1mSELECT  "admins".* FROM "admins"  WHERE "admins"."id" = $1 LIMIT 1[0m  [["id", 13]]
+  Rendered admins/edit.html.erb within layouts/application (1.3ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 13 LIMIT 1
+Completed 200 OK in 54ms (Views: 52.2ms | ActiveRecord: 0.4ms)
+
+
+Started PUT "/admins/13" for 127.0.0.1 at 2014-12-12 22:24:24 -0500
+Processing by AdminsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TZeZgG2R/aB/U+wBcitEL7QdertDylx7gl3Myk05b24=", "admin"=>{"username"=>"patti", "email"=>"33@gmail.com"}, "commit"=>"Update Admin", "id"=>"13"}
+  [1m[36mAdmin Load (0.2ms)[0m  [1mSELECT  "admins".* FROM "admins"  WHERE "admins"."id" = $1 LIMIT 1[0m  [["id", 13]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mAdmin Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "admins"  WHERE ("admins"."username" = 'patti' AND "admins"."id" != 13) LIMIT 1[0m
+  [1m[35mAdmin Exists (0.3ms)[0m  SELECT  1 AS one FROM "admins"  WHERE ("admins"."email" = '33@gmail.com' AND "admins"."id" != 13) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "admins" SET "updated_at" = $1, "username" = $2 WHERE "admins"."id" = 13[0m  [["updated_at", "2014-12-13 03:24:24.506578"], ["username", "patti"]]
+  [1m[35m (6.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/admins/13
+Completed 302 Found in 13ms (ActiveRecord: 7.3ms)
+
+
+Started GET "/admins/13" for 127.0.0.1 at 2014-12-12 22:24:24 -0500
+Processing by AdminsController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mAdmin Load (0.2ms)[0m  [1mSELECT  "admins".* FROM "admins"  WHERE "admins"."id" = $1 LIMIT 1[0m  [["id", 13]]
+  Rendered admins/show.html.erb within layouts/application (0.2ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 13 LIMIT 1
+Completed 200 OK in 66ms (Views: 64.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2014-12-12 22:24:24 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-12 22:24:24 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-12 22:24:24 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-12 22:24:24 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-12 22:24:24 -0500
+
+
+Started GET "/assets/admins.js?body=1" for 127.0.0.1 at 2014-12-12 22:24:24 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-12 22:24:24 -0500
+
+
+Started GET "/admins/13" for 127.0.0.1 at 2014-12-12 22:25:24 -0500
+Processing by AdminsController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mAdmin Load (0.2ms)[0m  [1mSELECT  "admins".* FROM "admins"  WHERE "admins"."id" = $1 LIMIT 1[0m  [["id", 13]]
+  Rendered admins/show.html.erb within layouts/application (1.5ms)
+Completed 500 Internal Server Error in 5ms
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    4: <h2>Email: <%= @admin.email %></h2><%= link_to "Edit Admin", edit_admin_path(@admin)%>
+    5: 
+    6: <ul>
+    7:   <%= form_for @category, url: categories_path(@category), method: 'POST' do |f| %>
+    8:     <li>
+    9:       <%= f.label :Category %>
+   10:       <%= f.text_field :name %>
+  app/views/admins/show.html.erb:7:in `_app_views_admins_show_html_erb__995397329304833748_70299846477320'
+  app/controllers/admins_controller.rb:32:in `show'
+
+
+  Rendered /Users/zahidjethani/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /Users/zahidjethani/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/zahidjethani/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (10.2ms)
+
+
+Started GET "/admins/13" for 127.0.0.1 at 2014-12-12 22:25:37 -0500
+Processing by AdminsController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[35mAdmin Load (0.2ms)[0m  SELECT  "admins".* FROM "admins"  WHERE "admins"."id" = $1 LIMIT 1  [["id", 13]]
+  Rendered admins/show.html.erb within layouts/application (7.3ms)
+Completed 500 Internal Server Error in 11ms
+
+ActionView::Template::Error (undefined local variable or method `post' for #<#<Class:0x007fdfeb71bc18>:0x007fdfeaeba010>):
+    4: <h2>Email: <%= @admin.email %></h2><%= link_to "Edit Admin", edit_admin_path(@admin)%>
+    5: 
+    6: <ul>
+    7:   <%= form_for @category, url: categories_path(@category), method: post do |f| %>
+    8:     <li>
+    9:       <%= f.label :Category %>
+   10:       <%= f.text_field :name %>
+  app/views/admins/show.html.erb:7:in `_app_views_admins_show_html_erb__995397329304833748_70299847869020'
+  app/controllers/admins_controller.rb:32:in `show'
+
+
+  Rendered /Users/zahidjethani/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /Users/zahidjethani/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/zahidjethani/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (9.6ms)
+
+
+Started GET "/admins/13" for 127.0.0.1 at 2014-12-12 22:25:41 -0500
+Processing by AdminsController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mAdmin Load (0.2ms)[0m  [1mSELECT  "admins".* FROM "admins"  WHERE "admins"."id" = $1 LIMIT 1[0m  [["id", 13]]
+  Rendered admins/show.html.erb within layouts/application (1.4ms)
+Completed 500 Internal Server Error in 5ms
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    4: <h2>Email: <%= @admin.email %></h2><%= link_to "Edit Admin", edit_admin_path(@admin)%>
+    5: 
+    6: <ul>
+    7:   <%= form_for @category, url: categories_path(@category) do |f| %>
+    8:     <li>
+    9:       <%= f.label :Category %>
+   10:       <%= f.text_field :name %>
+  app/views/admins/show.html.erb:7:in `_app_views_admins_show_html_erb__995397329304833748_70299872321920'
+  app/controllers/admins_controller.rb:32:in `show'
+
+
+  Rendered /Users/zahidjethani/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /Users/zahidjethani/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/zahidjethani/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (9.3ms)
+
+
+Started GET "/admins/13" for 127.0.0.1 at 2014-12-12 22:26:05 -0500
+Processing by AdminsController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[35mAdmin Load (0.1ms)[0m  SELECT  "admins".* FROM "admins"  WHERE "admins"."id" = $1 LIMIT 1  [["id", 13]]
+  Rendered admins/show.html.erb within layouts/application (3.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 13 LIMIT 1[0m
+Completed 200 OK in 47ms (Views: 31.7ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2014-12-12 22:26:05 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-12 22:26:05 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-12 22:26:05 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-12 22:26:05 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-12 22:26:05 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-12 22:26:05 -0500
+
+
+Started GET "/assets/admins.js?body=1" for 127.0.0.1 at 2014-12-12 22:26:05 -0500
