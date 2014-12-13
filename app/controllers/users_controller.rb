@@ -9,6 +9,7 @@ class UsersController < ApplicationController
       login(@user)
       redirect_to root_path
     else
+      session[:error] = @user.errors.full_messages
       render :new
     end
   end
