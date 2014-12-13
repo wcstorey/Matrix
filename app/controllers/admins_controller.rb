@@ -7,7 +7,7 @@ class AdminsController < ApplicationController
     @admin = Admin.new admin_params
     if @admin.save
       login(@admin)
-      redirect_to admin_path(@admin)
+      redirect_to admin
     else
       render :new
     end
@@ -21,7 +21,8 @@ class AdminsController < ApplicationController
   end
 
   def show
-
+    @admin = Admin.find params[:id]
+    render :show
   end
 
   private
