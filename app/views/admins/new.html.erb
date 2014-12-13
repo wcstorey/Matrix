@@ -1,3 +1,10 @@
+
+<% if flash[:danger]  %>
+<% flash[:danger].each do |field, error| %>
+  </span>Entry for <%= field %>: <%= error.join("") %><br></span>
+  <% end %>
+<% end %><br>
+
 <%= form_for @admin do |f| %>
   <%= f.label :username %>
   <%= f.text_field :username %><br>

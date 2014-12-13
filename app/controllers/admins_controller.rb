@@ -12,6 +12,7 @@ class AdminsController < ApplicationController
       redirect_to admins_path
     end
   end
+
   def new
     if session[:valid] == true
       @admin = Admin.new
@@ -26,6 +27,7 @@ class AdminsController < ApplicationController
       login(@admin)
       redirect_to admin_path(@admin)
     else
+      flash[:danger] = @admin.errors.messages
       render :new
     end
   end
