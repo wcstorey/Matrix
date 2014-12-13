@@ -5,10 +5,8 @@ class CategoriesController < ApplicationController
   end
 
   def create
-    p "*"*30
-    p category_params
-    @admin = Admin.find(session[:admin_id])
-    @admin.categories.create(category_params[:name])
+    @admin = Admin.find(category_params[:admin_id])
+    @admin.categories.create(category_params)
     redirect_to root_path
   end
 
