@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   has_many  :posts
   has_many  :comments
   has_many  :votes
+  after_save :restrict_voting
+
 
   def restrict_voting
     self.restrict_voting = false
