@@ -18,6 +18,8 @@ Admin:
 Categories you have made:
 <ul>
    <% @admin.categories.each do |category| %>
-    <li><%= link_to category.name, category_posts_path(category.id) %></li>
+    <li><%= link_to category.name, category_posts_path(category.id) %> |
+      <span><%= link_to 'delete', category_path(category), :method => :delete %></span>
+    </li>
    <% end %>
 </ul>
