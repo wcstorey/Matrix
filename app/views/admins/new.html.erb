@@ -5,7 +5,7 @@
   <% end %>
 <% end %><br>
 
-<%= form_for @admin, url: admins_path(@admin) do |f| %>
+<%= form_for @admin, url: admins_path do |f| %>
   <%= f.label :username %>
   <%= f.text_field :username %><br>
   <br>

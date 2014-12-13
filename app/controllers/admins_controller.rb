@@ -14,6 +14,17 @@ class AdminsController < ApplicationController
     end
   end
 
+  def create
+    @admin = Admin.new admin_params
+    if @admin.save
+      session[:admin_id] = @admin.id
+      redirect_to admin_path(@admin)
+    else
+      flash[:danger] = @admin.errors.messages
+      render :new
+    end
+  end
+
   def login
     @admin = Admin.find_by(username: params[:username])
     if @admin && @admin.authenticate(params[:password])
@@ -29,17 +40,6 @@ class AdminsController < ApplicationController
       @admin = Admin.new
     else
       redirect_to admins_path(@admin)
-    end
-  end
-
-  def create
-    @admin = Admin.new admin_params
-    if @admin.save
-      login(@admin)
-      redirect_to admin_path(@admin)
-    else
-      flash[:danger] = @admin.errors.messages
-      render :new
     end
   end
 
