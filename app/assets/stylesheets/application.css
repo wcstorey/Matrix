@@ -72,8 +72,7 @@ a:hover {
 
 ul, ol {
   list-style:none;
-  width: 50%;
-  margin: 10px auto;
+  margin: 10px 0 0 0;
 }
 
 li{
@@ -152,8 +151,8 @@ input[type=submit] :active {
 
 /*comment stylization*/
 .comment {
-  border-top: 1px solid rgb(216, 210, 210);
-  border-bottom: 1px solid rgb(216, 210, 210);
+/*  border-top: 1px solid rgb(216, 210, 210);
+*/ /* border-bottom: 1px solid rgb(216, 210, 210);*/
 }
 
 .vote {
@@ -173,7 +172,7 @@ input[type=submit] :active {
 
 .post_wrapper {
 border-top: 1px solid rgb(216, 210, 210);
-  border-bottom: 1px solid rgb(216, 210, 210);
+  border-bottom: 20px solid rgb(216, 210, 210);
   /*background-color:#EBEBFF;*/
   background: radial-gradient(#EBEBFF, #F5F5FF, white);
 }
