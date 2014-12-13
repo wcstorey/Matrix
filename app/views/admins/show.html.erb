@@ -1,2 +1,6 @@
-hiii
+Admin:
 <h1><%= @admin.username %></h1>
+
+<h2>Email: <%= @admin.email %></h2><%= link_to "Edit Admin", admin_path(@admin), method: :put%>
+
+
