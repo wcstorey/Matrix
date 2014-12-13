@@ -21,4 +21,14 @@ context "when a admin goes to login" do
     end
   end
 
+context "while filling out the fields" do
+    describe "admins#create" do
+      it "allows an admin to be created if the fields are filled out" do
+        expect{
+          Admin.create(username: "lulu", email: "ghoul@2spooky.com", password: "ghoul")
+        }.to change(Admin, :count)
+      end
+    end
+  end
+
   end
