@@ -10,4 +10,15 @@ context "when a admin goes to login" do
       end
     end
   end
+
+   context "while filling out the fields" do
+    describe "admins#create" do
+      it "doesn't allow an admin to be created if the fields aren't filled out" do
+        expect{
+          Admin.create(username: "lulu", password: "ghoul")
+        }.to_not change(Admin, :count)
+      end
+    end
+  end
+
   end
