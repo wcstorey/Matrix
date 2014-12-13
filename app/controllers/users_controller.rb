@@ -18,8 +18,19 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
+def update
+    @user = current_user
+    @user.assign_attributes(user_params)
+    if @user.save
+      redirect_to root_path
+    else
+      session[:error] = @user.errors.full_messages
+      render :edit
+    end
+end
+
   private
   def user_params
-    params.require(:user).permit(:username, :email, :password)
+    params.require(:user).permit(:id, :username, :email, :password, :password_confirmation)
   end
 end
