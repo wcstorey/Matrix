@@ -1,6 +1,11 @@
 <%= link_to "back to #{@category.name}", category_posts_path%>
 
 <h1><%= @post.title %> </h1>
+<!-- adding link to vote on post -->
+<%= link_to 'Upvote', votes_path, method: 'POST' %>
+<%= link_to 'Downvote', vote_path(@post.id), method: 'DELETE' %>
+
+<p><%= @post.votes.count %> Votes</p>
 
 <% if current_user && @post.user_id == current_user.id %>
   <span><%= link_to 'edit', edit_category_post_path(@post.category, @post) %></span>

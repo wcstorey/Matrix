@@ -33,6 +33,7 @@ gem 'rspec-activemodel-mocks'
 
 group :development, :test do
   gem 'rspec-rails'
+  gem 'byebug'
 end
 
 group :test do
