@@ -7,7 +7,7 @@ class CategoriesController < ApplicationController
   def create
     @admin = Admin.find(category_params[:admin_id])
     @admin.categories.create(category_params)
-    redirect_to root_path
+    redirect_to admin_path(@admin)
   end
 
 private
