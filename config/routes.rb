@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   #USER routes
   resources :users
 
+  #Admin routes
+  resources :admins
+
   #SESSIONS routes
   get ('/login') => 'sessions#new'
   post ('/login') => 'sessions#create'

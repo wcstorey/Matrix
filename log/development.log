@@ -3814,3 +3814,1071 @@ Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-12 21:07:14
   [1m[35mVote Load (0.4ms)[0m  SELECT "votes".* FROM "votes"
   [1m[36mVote Load (0.6ms)[0m  [1mSELECT "votes".* FROM "votes"[0m
   [1m[35mVote Load (0.6ms)[0m  SELECT  "votes".* FROM "votes"   ORDER BY "votes"."id" DESC LIMIT 1
+  [1m[36m (18.2ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (1.7ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateCategories (20141211213752)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (19.2ms)[0m  [1mCREATE TABLE "categories" ("id" serial primary key, "name" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (15.6ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141211213752"]]
+  [1m[36m (14.9ms)[0m  [1mCOMMIT[0m
+Migrating to CreateUsers (20141211214447)
+  [1m[35m (15.5ms)[0m  BEGIN
+  [1m[36m (19.8ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "username" character varying(255), "email" character varying(255), "password_digest" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141211214447"]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+Migrating to CreatePosts (20141211214859)
+  [1m[35m (15.4ms)[0m  BEGIN
+  [1m[36m (19.0ms)[0m  [1mCREATE TABLE "posts" ("id" serial primary key, "title" character varying(255), "content" text, "category_id" integer, "user_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141211214859"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Migrating to CreateComments (20141211215454)
+  [1m[35m (15.4ms)[0m  BEGIN
+  [1m[36m (19.6ms)[0m  [1mCREATE TABLE "comments" ("id" serial primary key, "content" text, "user_id" integer, "post_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141211215454"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Migrating to CreateVotes (20141211215702)
+  [1m[35m (15.5ms)[0m  BEGIN
+  [1m[36m (18.5ms)[0m  [1mCREATE TABLE "votes" ("id" serial primary key, "user_id" integer, "voteable_id" integer, "voteable_type" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141211215702"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Migrating to AddParentIdToPosts (20141212154247)
+  [1m[35m (16.6ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "posts" ADD COLUMN "parent_id" integer[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141212154247"]]
+  [1m[36m (15.6ms)[0m  [1mCOMMIT[0m
+Migrating to DropComments (20141212155702)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (1.1ms)[0m  [1mDROP TABLE "comments"[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141212155702"]]
+  [1m[36m (16.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/" for 127.0.0.1 at 2014-12-12 22:24:28 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.6ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered categories/index.html.erb within layouts/application (3.1ms)
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+Completed 200 OK in 1184ms (Views: 1136.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-12-12 22:24:29 -0500
+Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered categories/index.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+Completed 200 OK in 78ms (Views: 76.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-12 22:24:29 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-12 22:24:29 -0500
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2014-12-12 22:24:29 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-12 22:24:29 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-12 22:24:29 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-12 22:24:29 -0500
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2014-12-12 22:24:29 -0500
+
+
+Started GET "/login" for 127.0.0.1 at 2014-12-12 22:24:33 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (74.0ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+Completed 200 OK in 155ms (Views: 153.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2014-12-12 22:24:34 -0500
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (10.1ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+Completed 200 OK in 52ms (Views: 47.1ms | ActiveRecord: 2.6ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2014-12-12 22:24:43 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1DmcaBCb9iMsy/2IsBc/1+kp8vOPalkuiCaEe8M2xOI=", "user"=>{"username"=>"betsy", "email"=>"betsy@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create User"}
+Unpermitted parameters: password_confirmation
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.7ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."username" = 'betsy' LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'betsy@gmail.com' LIMIT 1
+  [1m[36mSQL (15.0ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "password_digest", "updated_at", "username") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2014-12-13 03:24:43.749973"], ["email", "betsy@gmail.com"], ["password_digest", "$2a$10$opf/9yihUBqUAOBvw19.zujIzMoE3ZxUkgVk7BqSFngH6sDad2F4e"], ["updated_at", "2014-12-13 03:24:43.749973"], ["username", "betsy"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 154ms (ActiveRecord: 16.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-12-12 22:24:43 -0500
+Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered categories/index.html.erb within layouts/application (0.9ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+Completed 200 OK in 72ms (Views: 70.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-12 22:24:43 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-12 22:24:43 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-12 22:24:43 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-12 22:24:43 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-12 22:24:43 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2014-12-12 22:24:45 -0500
+Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered categories/index.html.erb within layouts/application (1.5ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+Completed 200 OK in 84ms (Views: 82.3ms | ActiveRecord: 0.8ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Exists (0.6ms)[0m  SELECT  1 AS one FROM "categories"  WHERE "categories"."name" = 'Ruby' LIMIT 1
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "categories" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2014-12-13 03:25:07.028352"], ["name", "Ruby"], ["updated_at", "2014-12-13 03:25:07.028352"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Exists (0.3ms)[0m  SELECT  1 AS one FROM "categories"  WHERE "categories"."name" = 'Javascript' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "categories" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2014-12-13 03:25:07.035872"], ["name", "Javascript"], ["updated_at", "2014-12-13 03:25:07.035872"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Exists (0.2ms)[0m  SELECT  1 AS one FROM "categories"  WHERE "categories"."name" = 'C++' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "categories" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2014-12-13 03:25:07.038323"], ["name", "C++"], ["updated_at", "2014-12-13 03:25:07.038323"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Exists (0.2ms)[0m  SELECT  1 AS one FROM "categories"  WHERE "categories"."name" = 'Python' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "categories" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2014-12-13 03:25:07.040814"], ["name", "Python"], ["updated_at", "2014-12-13 03:25:07.040814"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Exists (0.2ms)[0m  SELECT  1 AS one FROM "categories"  WHERE "categories"."name" = 'PHP' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "categories" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2014-12-13 03:25:07.043077"], ["name", "PHP"], ["updated_at", "2014-12-13 03:25:07.043077"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+
+
+Started GET "/" for 127.0.0.1 at 2014-12-12 22:25:20 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered categories/index.html.erb within layouts/application (9.3ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+Completed 200 OK in 149ms (Views: 128.7ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2014-12-12 22:25:21 -0500
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2014-12-12 22:25:21 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-12 22:25:21 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-12 22:25:21 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-12 22:25:21 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-12 22:25:21 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-12 22:25:21 -0500
+
+
+Started GET "/categories/1/posts" for 127.0.0.1 at 2014-12-12 22:25:23 -0500
+Processing by PostsController#index as HTML
+  Parameters: {"category_id"=>"1"}
+  [1m[35mCategory Load (0.3ms)[0m  SELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mPost Load (0.4ms)[0m  SELECT "posts".* FROM "posts"  WHERE "posts"."category_id" = $1 AND "posts"."parent_id" IS NULL  [["category_id", 1]]
+  Rendered posts/index.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 88ms (Views: 39.9ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/categories/1/posts/new" for 127.0.0.1 at 2014-12-12 22:25:25 -0500
+Processing by PostsController#new as HTML
+  Parameters: {"category_id"=>"1"}
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered posts/new.html.erb within layouts/application (34.9ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+Completed 200 OK in 146ms (Views: 83.6ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/categories/1/posts" for 127.0.0.1 at 2014-12-12 22:25:38 -0500
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1DmcaBCb9iMsy/2IsBc/1+kp8vOPalkuiCaEe8M2xOI=", "post"=>{"parent_id"=>"", "title"=>"test title1", "content"=>"test content1"}, "commit"=>"Create Post", "category_id"=>"1"}
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (16.0ms)[0m  [1mINSERT INTO "posts" ("category_id", "content", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["category_id", 1], ["content", "test content1"], ["created_at", "2014-12-13 03:25:38.051000"], ["title", "test title1"], ["updated_at", "2014-12-13 03:25:38.051000"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+Redirected to http://localhost:3000/categories/1/posts/1
+Completed 302 Found in 24ms (ActiveRecord: 17.1ms)
+
+
+Started GET "/categories/1/posts/1" for 127.0.0.1 at 2014-12-12 22:25:38 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"category_id"=>"1", "id"=>"1"}
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mPost Load (0.3ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."category_id" = $1 AND "posts"."id" = $2 LIMIT 1  [["category_id", 1], ["id", 1]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "votes"  WHERE "votes"."voteable_id" = $1 AND "votes"."voteable_type" = $2[0m  [["voteable_id", 1], ["voteable_type", "Post"]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts"  WHERE "posts"."parent_id" = $1[0m  [["parent_id", 1]]
+  Rendered posts/show.html.erb within layouts/application (14.8ms)
+Completed 200 OK in 98ms (Views: 92.2ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2014-12-12 22:25:38 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-12 22:25:38 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-12 22:25:38 -0500
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2014-12-12 22:25:38 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-12 22:25:38 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-12 22:25:38 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-12 22:25:38 -0500
+
+
+Started GET "/categories/1/posts/new?parent_id=1" for 127.0.0.1 at 2014-12-12 22:25:43 -0500
+Processing by PostsController#new as HTML
+  Parameters: {"parent_id"=>"1", "category_id"=>"1"}
+  [1m[35mCategory Load (0.3ms)[0m  SELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered posts/new.html.erb within layouts/application (1.9ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+Completed 200 OK in 38ms (Views: 35.3ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/categories/1/posts" for 127.0.0.1 at 2014-12-12 22:25:54 -0500
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1DmcaBCb9iMsy/2IsBc/1+kp8vOPalkuiCaEe8M2xOI=", "post"=>{"parent_id"=>"1", "title"=>"reply title 1", "content"=>"reply content 1"}, "commit"=>"Create Post", "category_id"=>"1"}
+  [1m[35mCategory Load (0.4ms)[0m  SELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("category_id", "content", "created_at", "parent_id", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["category_id", 1], ["content", "reply content 1"], ["created_at", "2014-12-13 03:25:54.984301"], ["parent_id", 1], ["title", "reply title 1"], ["updated_at", "2014-12-13 03:25:54.984301"]]
+  [1m[36m (15.6ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/categories/1/posts/1
+Completed 302 Found in 22ms (ActiveRecord: 16.4ms)
+
+
+Started GET "/categories/1/posts/1" for 127.0.0.1 at 2014-12-12 22:25:55 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"category_id"=>"1", "id"=>"1"}
+  [1m[35mCategory Load (0.3ms)[0m  SELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."category_id" = $1 AND "posts"."id" = $2 LIMIT 1[0m  [["category_id", 1], ["id", 1]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "votes"  WHERE "votes"."voteable_id" = $1 AND "votes"."voteable_type" = $2  [["voteable_id", 1], ["voteable_type", "Post"]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts"  WHERE "posts"."parent_id" = $1  [["parent_id", 1]]
+  Rendered posts/_post_comments.html.erb (3.0ms)
+  Rendered posts/show.html.erb within layouts/application (41.6ms)
+Completed 200 OK in 78ms (Views: 73.6ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-12 22:25:55 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-12 22:25:55 -0500
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2014-12-12 22:25:55 -0500
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2014-12-12 22:25:55 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-12 22:25:55 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-12 22:25:55 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-12 22:25:55 -0500
+
+
+Started POST "/votes" for 127.0.0.1 at 2014-12-12 22:25:59 -0500
+Processing by VotesController#create as HTML
+  Parameters: {"authenticity_token"=>"1DmcaBCb9iMsy/2IsBc/1+kp8vOPalkuiCaEe8M2xOI="}
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT  "posts".* FROM "posts"  LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "votes" ("created_at", "updated_at", "user_id", "voteable_id", "voteable_type") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-12-13 03:25:59.018316"], ["updated_at", "2014-12-13 03:25:59.018316"], ["user_id", 1], ["voteable_id", 1], ["voteable_type", "Post"]]
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/categories/1/posts/1
+Completed 302 Found in 14ms (ActiveRecord: 2.5ms)
+
+
+Started GET "/categories/1/posts/1" for 127.0.0.1 at 2014-12-12 22:25:59 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"category_id"=>"1", "id"=>"1"}
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."category_id" = $1 AND "posts"."id" = $2 LIMIT 1[0m  [["category_id", 1], ["id", 1]]
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "votes"  WHERE "votes"."voteable_id" = $1 AND "votes"."voteable_type" = $2  [["voteable_id", 1], ["voteable_type", "Post"]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts"  WHERE "posts"."parent_id" = $1  [["parent_id", 1]]
+  Rendered posts/_post_comments.html.erb (0.1ms)
+  Rendered posts/show.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 92ms (Views: 88.2ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-12 22:25:59 -0500
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2014-12-12 22:25:59 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-12 22:25:59 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-12 22:25:59 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-12 22:25:59 -0500
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2014-12-12 22:25:59 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-12 22:25:59 -0500
+
+
+Started DELETE "/votes/1" for 127.0.0.1 at 2014-12-12 22:26:00 -0500
+Processing by VotesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"1DmcaBCb9iMsy/2IsBc/1+kp8vOPalkuiCaEe8M2xOI=", "id"=>"1"}
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mVote Load (0.3ms)[0m  SELECT  "votes".* FROM "votes"  WHERE "votes"."voteable_id" = $1 AND "votes"."voteable_type" = $2  ORDER BY "votes"."id" DESC LIMIT 1  [["voteable_id", 1], ["voteable_type", "Post"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "votes" WHERE "votes"."id" = $1  [["id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/categories/1/posts/1
+Completed 302 Found in 6ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/categories/1/posts/1" for 127.0.0.1 at 2014-12-12 22:26:00 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"category_id"=>"1", "id"=>"1"}
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."category_id" = $1 AND "posts"."id" = $2 LIMIT 1[0m  [["category_id", 1], ["id", 1]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "votes"  WHERE "votes"."voteable_id" = $1 AND "votes"."voteable_type" = $2  [["voteable_id", 1], ["voteable_type", "Post"]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"  WHERE "posts"."parent_id" = $1  [["parent_id", 1]]
+  Rendered posts/_post_comments.html.erb (0.1ms)
+  Rendered posts/show.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 42ms (Views: 38.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-12 22:26:00 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-12 22:26:00 -0500
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2014-12-12 22:26:00 -0500
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2014-12-12 22:26:00 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-12 22:26:00 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-12 22:26:00 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-12 22:26:00 -0500
+
+
+Started POST "/votes" for 127.0.0.1 at 2014-12-12 22:26:02 -0500
+Processing by VotesController#create as HTML
+  Parameters: {"authenticity_token"=>"1DmcaBCb9iMsy/2IsBc/1+kp8vOPalkuiCaEe8M2xOI="}
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT  "posts".* FROM "posts"  LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "votes" ("created_at", "updated_at", "user_id", "voteable_id", "voteable_type") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-12-13 03:26:02.368062"], ["updated_at", "2014-12-13 03:26:02.368062"], ["user_id", 1], ["voteable_id", 1], ["voteable_type", "Post"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/categories/1/posts/1
+Completed 302 Found in 7ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/categories/1/posts/1" for 127.0.0.1 at 2014-12-12 22:26:02 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"category_id"=>"1", "id"=>"1"}
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."category_id" = $1 AND "posts"."id" = $2 LIMIT 1[0m  [["category_id", 1], ["id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "votes"  WHERE "votes"."voteable_id" = $1 AND "votes"."voteable_type" = $2  [["voteable_id", 1], ["voteable_type", "Post"]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"  WHERE "posts"."parent_id" = $1  [["parent_id", 1]]
+  Rendered posts/_post_comments.html.erb (0.1ms)
+  Rendered posts/show.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 38ms (Views: 34.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-12 22:26:02 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-12 22:26:02 -0500
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2014-12-12 22:26:02 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-12 22:26:02 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-12 22:26:02 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-12 22:26:02 -0500
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2014-12-12 22:26:02 -0500
+
+
+Started DELETE "/votes/1" for 127.0.0.1 at 2014-12-12 22:26:04 -0500
+Processing by VotesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"1DmcaBCb9iMsy/2IsBc/1+kp8vOPalkuiCaEe8M2xOI=", "id"=>"1"}
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mVote Load (0.2ms)[0m  SELECT  "votes".* FROM "votes"  WHERE "votes"."voteable_id" = $1 AND "votes"."voteable_type" = $2  ORDER BY "votes"."id" DESC LIMIT 1  [["voteable_id", 1], ["voteable_type", "Post"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "votes" WHERE "votes"."id" = $1  [["id", 2]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/categories/1/posts/1
+Completed 302 Found in 5ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/categories/1/posts/1" for 127.0.0.1 at 2014-12-12 22:26:04 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"category_id"=>"1", "id"=>"1"}
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."category_id" = $1 AND "posts"."id" = $2 LIMIT 1[0m  [["category_id", 1], ["id", 1]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "votes"  WHERE "votes"."voteable_id" = $1 AND "votes"."voteable_type" = $2  [["voteable_id", 1], ["voteable_type", "Post"]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"  WHERE "posts"."parent_id" = $1  [["parent_id", 1]]
+  Rendered posts/_post_comments.html.erb (0.1ms)
+  Rendered posts/show.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 90ms (Views: 86.6ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-12 22:26:04 -0500
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2014-12-12 22:26:04 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-12 22:26:04 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-12 22:26:04 -0500
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2014-12-12 22:26:04 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-12 22:26:04 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-12 22:26:04 -0500
+
+
+Started POST "/votes" for 127.0.0.1 at 2014-12-12 22:26:07 -0500
+Processing by VotesController#create as HTML
+  Parameters: {"authenticity_token"=>"1DmcaBCb9iMsy/2IsBc/1+kp8vOPalkuiCaEe8M2xOI="}
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT  "posts".* FROM "posts"  LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "votes" ("created_at", "updated_at", "user_id", "voteable_id", "voteable_type") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-12-13 03:26:07.097004"], ["updated_at", "2014-12-13 03:26:07.097004"], ["user_id", 1], ["voteable_id", 1], ["voteable_type", "Post"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/categories/1/posts/1
+Completed 302 Found in 7ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/categories/1/posts/1" for 127.0.0.1 at 2014-12-12 22:26:07 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"category_id"=>"1", "id"=>"1"}
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."category_id" = $1 AND "posts"."id" = $2 LIMIT 1[0m  [["category_id", 1], ["id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "votes"  WHERE "votes"."voteable_id" = $1 AND "votes"."voteable_type" = $2  [["voteable_id", 1], ["voteable_type", "Post"]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"  WHERE "posts"."parent_id" = $1  [["parent_id", 1]]
+  Rendered posts/_post_comments.html.erb (0.2ms)
+  Rendered posts/show.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 42ms (Views: 39.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-12 22:26:07 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-12 22:26:07 -0500
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2014-12-12 22:26:07 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-12 22:26:07 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-12 22:26:07 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-12 22:26:07 -0500
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2014-12-12 22:26:07 -0500
+
+
+Started POST "/votes" for 127.0.0.1 at 2014-12-12 22:26:07 -0500
+Processing by VotesController#create as HTML
+  Parameters: {"authenticity_token"=>"1DmcaBCb9iMsy/2IsBc/1+kp8vOPalkuiCaEe8M2xOI="}
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT  "posts".* FROM "posts"  LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "votes" ("created_at", "updated_at", "user_id", "voteable_id", "voteable_type") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-12-13 03:26:07.754437"], ["updated_at", "2014-12-13 03:26:07.754437"], ["user_id", 1], ["voteable_id", 1], ["voteable_type", "Post"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/categories/1/posts/1
+Completed 302 Found in 5ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/categories/1/posts/1" for 127.0.0.1 at 2014-12-12 22:26:07 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"category_id"=>"1", "id"=>"1"}
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."category_id" = $1 AND "posts"."id" = $2 LIMIT 1[0m  [["category_id", 1], ["id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "votes"  WHERE "votes"."voteable_id" = $1 AND "votes"."voteable_type" = $2  [["voteable_id", 1], ["voteable_type", "Post"]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"  WHERE "posts"."parent_id" = $1  [["parent_id", 1]]
+  Rendered posts/_post_comments.html.erb (0.1ms)
+  Rendered posts/show.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 41ms (Views: 38.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-12 22:26:07 -0500
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2014-12-12 22:26:07 -0500
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2014-12-12 22:26:07 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-12 22:26:07 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-12 22:26:07 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-12 22:26:07 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-12 22:26:07 -0500
+
+
+Started POST "/votes" for 127.0.0.1 at 2014-12-12 22:26:08 -0500
+Processing by VotesController#create as HTML
+  Parameters: {"authenticity_token"=>"1DmcaBCb9iMsy/2IsBc/1+kp8vOPalkuiCaEe8M2xOI="}
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT  "posts".* FROM "posts"  LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "votes" ("created_at", "updated_at", "user_id", "voteable_id", "voteable_type") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-12-13 03:26:08.625118"], ["updated_at", "2014-12-13 03:26:08.625118"], ["user_id", 1], ["voteable_id", 1], ["voteable_type", "Post"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/categories/1/posts/1
+Completed 302 Found in 7ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/categories/1/posts/1" for 127.0.0.1 at 2014-12-12 22:26:08 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"category_id"=>"1", "id"=>"1"}
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."category_id" = $1 AND "posts"."id" = $2 LIMIT 1[0m  [["category_id", 1], ["id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "votes"  WHERE "votes"."voteable_id" = $1 AND "votes"."voteable_type" = $2  [["voteable_id", 1], ["voteable_type", "Post"]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"  WHERE "posts"."parent_id" = $1  [["parent_id", 1]]
+  Rendered posts/_post_comments.html.erb (0.1ms)
+  Rendered posts/show.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 39ms (Views: 36.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-12 22:26:08 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-12 22:26:08 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-12 22:26:08 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-12 22:26:08 -0500
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2014-12-12 22:26:08 -0500
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2014-12-12 22:26:08 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-12 22:26:08 -0500
+
+
+Started GET "/categories/1/posts" for 127.0.0.1 at 2014-12-12 22:26:11 -0500
+Processing by PostsController#index as HTML
+  Parameters: {"category_id"=>"1"}
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts"  WHERE "posts"."category_id" = $1 AND "posts"."parent_id" IS NULL[0m  [["category_id", 1]]
+  Rendered posts/index.html.erb within layouts/application (54.6ms)
+Completed 200 OK in 89ms (Views: 85.9ms | ActiveRecord: 0.7ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2014-12-12 22:28:25 -0500
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"1DmcaBCb9iMsy/2IsBc/1+kp8vOPalkuiCaEe8M2xOI="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-12-12 22:28:25 -0500
+Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered categories/index.html.erb within layouts/application (1.5ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 33ms (Views: 31.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-12 22:28:25 -0500
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2014-12-12 22:28:25 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-12 22:28:25 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-12 22:28:25 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-12 22:28:25 -0500
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2014-12-12 22:28:25 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-12 22:28:25 -0500
+
+
+Started GET "/users/new" for 127.0.0.1 at 2014-12-12 22:28:26 -0500
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (4.2ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 88ms (Views: 86.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2014-12-12 22:28:33 -0500
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (2.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 35ms (Views: 34.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2014-12-12 22:28:44 -0500
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (3.5ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 45ms (Views: 43.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-12 22:28:44 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-12 22:28:44 -0500
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2014-12-12 22:28:44 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-12 22:28:44 -0500
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2014-12-12 22:28:44 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-12 22:28:44 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-12 22:28:44 -0500
+
+
+Started GET "/admins/new" for 127.0.0.1 at 2014-12-12 22:28:51 -0500
+
+ActionController::RoutingError (No route matches [GET] "/admins/new"):
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.6ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (17.2ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (73.4ms)
+
+
+Started GET "/admins/new" for 127.0.0.1 at 2014-12-12 22:29:29 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+ActionController::RoutingError (No route matches [GET] "/admins/new"):
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (5.5ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (34.5ms)
+
+
+Started GET "/admins/new" for 127.0.0.1 at 2014-12-12 22:31:37 -0500
+Processing by AdminsController#new as HTML
+PG::UndefinedTable: ERROR:  relation "admins" does not exist
+LINE 5:                WHERE a.attrelid = '"admins"'::regclass
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"admins"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+Completed 500 Internal Server Error in 16ms
+
+ActiveRecord::StatementInvalid (PG::UndefinedTable: ERROR:  relation "admins" does not exist
+LINE 5:                WHERE a.attrelid = '"admins"'::regclass
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"admins"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+):
+  app/controllers/admins_controller.rb:3:in `new'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (21.9ms)
+
+
+Started GET "/admins/new" for 127.0.0.1 at 2014-12-12 22:33:29 -0500
+Processing by AdminsController#new as HTML
+PG::UndefinedTable: ERROR:  relation "admins" does not exist
+LINE 5:                WHERE a.attrelid = '"admins"'::regclass
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"admins"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+Completed 500 Internal Server Error in 5ms
+
+ActiveRecord::StatementInvalid (PG::UndefinedTable: ERROR:  relation "admins" does not exist
+LINE 5:                WHERE a.attrelid = '"admins"'::regclass
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"admins"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+):
+  app/controllers/admins_controller.rb:3:in `new'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.8ms)
+
+
+Started GET "/admins/new" for 127.0.0.1 at 2014-12-12 22:39:49 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by AdminsController#new as HTML
+PG::UndefinedTable: ERROR:  relation "admins" does not exist
+LINE 5:                WHERE a.attrelid = '"admins"'::regclass
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"admins"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+
+Completed 500 Internal Server Error in 17ms
+
+ActiveRecord::StatementInvalid (PG::UndefinedTable: ERROR:  relation "admins" does not exist
+LINE 5:                WHERE a.attrelid = '"admins"'::regclass
+                                          ^
+:               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+                FROM pg_attribute a LEFT JOIN pg_attrdef d
+                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+               WHERE a.attrelid = '"admins"'::regclass
+                 AND a.attnum > 0 AND NOT a.attisdropped
+               ORDER BY a.attnum
+):
+  app/controllers/admins_controller.rb:3:in `new'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (17.3ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateAdmins (20141213013005)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (39.6ms)[0m  [1mCREATE TABLE "admins" ("id" serial primary key, "username" character varying(255), "email" character varying(255), "password_digest" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141213013005"]]
+  [1m[36m (21.5ms)[0m  [1mCOMMIT[0m
+Migrating to AddReferencesAdminToCategories (20141213014517)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "categories" ADD COLUMN "admin_id" integer[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141213014517"]]
+  [1m[36m (6.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/admins/new" for 127.0.0.1 at 2014-12-12 22:41:57 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by AdminsController#new as HTML
+  Rendered admins/new.html.erb within layouts/application (19.3ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 227ms (Views: 171.8ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-12 22:41:58 -0500
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2014-12-12 22:41:58 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-12 22:41:58 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-12 22:41:58 -0500
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2014-12-12 22:41:58 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-12 22:41:58 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-12 22:41:58 -0500
+
+
+Started POST "/admins" for 127.0.0.1 at 2014-12-12 22:42:19 -0500
+Processing by AdminsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1DmcaBCb9iMsy/2IsBc/1+kp8vOPalkuiCaEe8M2xOI=", "admin"=>{"username"=>"z", "email"=>"test@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create Admin"}
+Unpermitted parameters: password_confirmation
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAdmin Exists (0.8ms)[0m  SELECT  1 AS one FROM "admins"  WHERE "admins"."username" = 'z' LIMIT 1
+  [1m[36mAdmin Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "admins"  WHERE "admins"."email" = 'test@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (15.9ms)[0m  INSERT INTO "admins" ("created_at", "email", "password_digest", "updated_at", "username") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-12-13 03:42:19.330599"], ["email", "test@gmail.com"], ["password_digest", "$2a$10$t1OA/GhvNNSddSlC8xbcD.KdIaaPl84Zc9IdqtGZAy0s5eK5eW6UO"], ["updated_at", "2014-12-13 03:42:19.330599"], ["username", "z"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/admins/1
+Completed 302 Found in 127ms (ActiveRecord: 17.8ms)
+
+
+Started GET "/admins/1" for 127.0.0.1 at 2014-12-12 22:42:19 -0500
+Processing by AdminsController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendered admins/show.html.erb within layouts/application (0.3ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+Completed 200 OK in 83ms (Views: 79.9ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2014-12-12 22:42:19 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-12 22:42:19 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-12 22:42:19 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-12 22:42:19 -0500
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2014-12-12 22:42:19 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-12 22:42:19 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-12 22:42:19 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2014-12-12 22:42:28 -0500
+Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered categories/index.html.erb within layouts/application (7.1ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+Completed 200 OK in 51ms (Views: 43.5ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/admins" for 127.0.0.1 at 2014-12-12 22:42:33 -0500
+
+AbstractController::ActionNotFound (The action 'index' could not be found for AdminsController):
+  actionpack (4.1.6) lib/abstract_controller/base.rb:131:in `process'
+  actionview (4.1.6) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.6) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.1.6) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.6) lib/action_controller/metal.rb:232:in `block in action'
+  actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:82:in `call'
+  actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:82:in `dispatch'
+  actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:50:in `call'
+  actionpack (4.1.6) lib/action_dispatch/journey/router.rb:73:in `block in call'
+  actionpack (4.1.6) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.1.6) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:678:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.6) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.6) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout (0.6ms)
+
+
+Started GET "/admins/1" for 127.0.0.1 at 2014-12-12 22:42:38 -0500
+Processing by AdminsController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendered admins/show.html.erb within layouts/application (0.1ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+Completed 200 OK in 39ms (Views: 37.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-12 22:42:38 -0500
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2014-12-12 22:42:38 -0500
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2014-12-12 22:42:38 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-12 22:42:38 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-12 22:42:38 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-12 22:42:38 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-12 22:42:38 -0500
