@@ -12,11 +12,15 @@
 <div class="header">
   <% if current_user %>
       <%= link_to 'Logout', logout_path, method: 'DELETE'  %>
+      <span><%= link_to 'Profile', edit_user_path(session[:user_id])%></span>
   <% else %>
       <a href="/users/new">Signup</a> | <a href="/login">Login</a>
   <% end %>
 
-  <span><%= link_to 'Home', root_path%></span> #justify to the right
+  <span><%= link_to 'Home', root_path%></span>
+
+
+
 
 </div>
 <%= display_error %>
