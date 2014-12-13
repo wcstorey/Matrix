@@ -1,9 +1,23 @@
 class AdminsController < ApplicationController
   def index
+    @admin = ""
+  end
 
+  def check
+    @admin = params[:admin_id]
+    if @admin == "Matrix"
+      session[:valid] = true
+      redirect_to new_admin_path
+    else
+      redirect_to admins_path
+    end
   end
   def new
-    @admin = Admin.new
+    if session[:valid] == true
+      @admin = Admin.new
+    else
+      redirect_to admins_path
+    end
   end
 
   def create
@@ -39,6 +53,6 @@ class AdminsController < ApplicationController
   private
 
   def admin_params
-    params.require(:admin).permit(:username, :email, :password)
+    params.require(:admin).permit(:username, :email, :password, :id)
   end
 end

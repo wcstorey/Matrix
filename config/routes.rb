@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   #Admin routes
   resources :admins
-
+  post ('/admins/check') => 'admins#check'
   #SESSIONS routes
   get ('/login') => 'sessions#new'
   post ('/login') => 'sessions#create'

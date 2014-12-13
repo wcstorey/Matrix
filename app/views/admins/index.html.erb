@@ -1,0 +1,9 @@
+<ul>
+  <%= form_for @admin, url: admins_check_path do |f| %>
+    <li>
+      <%= f.label :Please_Enter_Admin_Key %>
+      <%= f.text_field :admin_id %>
+    </li>
+      <%= f.submit %>
+  <% end %>
+</ul>
