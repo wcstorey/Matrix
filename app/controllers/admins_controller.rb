@@ -13,11 +13,20 @@ class AdminsController < ApplicationController
     end
   end
 
+  def login
+    @admin = Admin.find_by(username: params[:username])
+    if @admin && @admin.authenticate(params[:password])
+      redirect_to admin_path(@admin)
+    else
+      redirect_to admins_path
+    end
+  end
+
   def new
     if session[:valid] == true
       @admin = Admin.new
     else
-      redirect_to admins_path
+      redirect_to admins_path(@admin)
     end
   end
 
