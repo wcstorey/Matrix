@@ -68,7 +68,7 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-  resources :categories, only: [:index, :show] do
+  resources :categories, only: [:index, :show, :new,:create] do
     resources :posts
   end
 

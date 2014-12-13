@@ -2462,3 +2462,684 @@ Started GET "/assets/admins.js?body=1" for 127.0.0.1 at 2014-12-12 22:09:38 -050
 
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-12 22:09:38 -0500
+
+
+Started GET "/admins/10" for 127.0.0.1 at 2014-12-12 22:12:17 -0500
+Processing by AdminsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[35mAdmin Load (0.1ms)[0m  SELECT  "admins".* FROM "admins"  WHERE "admins"."id" = $1 LIMIT 1  [["id", 10]]
+  Rendered admins/show.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 10 LIMIT 1[0m
+Completed 200 OK in 79ms (Views: 69.4ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2014-12-12 22:12:17 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-12 22:12:17 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-12 22:12:17 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-12 22:12:17 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-12 22:12:17 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-12 22:12:17 -0500
+
+
+Started GET "/assets/admins.js?body=1" for 127.0.0.1 at 2014-12-12 22:12:17 -0500
+
+
+Started GET "/admins/10" for 127.0.0.1 at 2014-12-12 22:15:14 -0500
+Processing by AdminsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[35mAdmin Load (0.1ms)[0m  SELECT  "admins".* FROM "admins"  WHERE "admins"."id" = $1 LIMIT 1  [["id", 10]]
+  Rendered admins/show.html.erb within layouts/application (0.6ms)
+Completed 500 Internal Server Error in 10ms
+
+SyntaxError (/Users/zahidjethani/dbc/phase3/week-1/Matrix/app/views/admins/show.html.erb:9: syntax error, unexpected tCONSTANT, expecting ')'
+..._buffer.append=( f.label :Add A Category );@output_buffer.sa...
+...                               ^):
+  app/views/admins/show.html.erb:9: syntax error, unexpected tCONSTANT, expecting ')'
+  app/controllers/admins_controller.rb:32:in `show'
+
+
+  Rendered /Users/zahidjethani/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /Users/zahidjethani/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /Users/zahidjethani/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/zahidjethani/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.1ms)
+
+
+Started GET "/admins/10" for 127.0.0.1 at 2014-12-12 22:15:24 -0500
+Processing by AdminsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mAdmin Load (0.2ms)[0m  [1mSELECT  "admins".* FROM "admins"  WHERE "admins"."id" = $1 LIMIT 1[0m  [["id", 10]]
+  Rendered admins/show.html.erb within layouts/application (1.2ms)
+Completed 500 Internal Server Error in 4ms
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    4: <h2>Email: <%= @admin.email %></h2><%= link_to "Edit Admin", edit_admin_path(@admin)%>
+    5: 
+    6: <ul>
+    7:   <%= form_for @category do |f| %>
+    8:     <li>
+    9:       <%= f.label :Category %>
+   10:       <%= f.text_field :name %>
+  app/views/admins/show.html.erb:7:in `_app_views_admins_show_html_erb__995397329304833748_70299888357600'
+  app/controllers/admins_controller.rb:32:in `show'
+
+
+  Rendered /Users/zahidjethani/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /Users/zahidjethani/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/zahidjethani/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (9.0ms)
+
+
+Started GET "/admins/10" for 127.0.0.1 at 2014-12-12 22:17:10 -0500
+Processing by AdminsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[35mAdmin Load (0.2ms)[0m  SELECT  "admins".* FROM "admins"  WHERE "admins"."id" = $1 LIMIT 1  [["id", 10]]
+  Rendered admins/show.html.erb within layouts/application (0.5ms)
+Completed 500 Internal Server Error in 3ms
+
+SyntaxError (/Users/zahidjethani/dbc/phase3/week-1/Matrix/app/views/admins/show.html.erb:7: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...append=  form_for @category url: new_category_path do |f| @o...
+...                               ^):
+  app/views/admins/show.html.erb:7: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  app/controllers/admins_controller.rb:32:in `show'
+
+
+  Rendered /Users/zahidjethani/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/zahidjethani/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /Users/zahidjethani/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/zahidjethani/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.5ms)
+
+
+Started GET "/admins/10" for 127.0.0.1 at 2014-12-12 22:17:25 -0500
+Processing by AdminsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mAdmin Load (0.2ms)[0m  [1mSELECT  "admins".* FROM "admins"  WHERE "admins"."id" = $1 LIMIT 1[0m  [["id", 10]]
+  Rendered admins/show.html.erb within layouts/application (0.7ms)
+Completed 500 Internal Server Error in 4ms
+
+SyntaxError (/Users/zahidjethani/dbc/phase3/week-1/Matrix/app/views/admins/show.html.erb:7: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...append=  form_for @category url: new_category_path(@category...
+...                               ^):
+  app/views/admins/show.html.erb:7: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  app/controllers/admins_controller.rb:32:in `show'
+
+
+  Rendered /Users/zahidjethani/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/zahidjethani/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /Users/zahidjethani/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/zahidjethani/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.3ms)
+
+
+Started GET "/admins/10" for 127.0.0.1 at 2014-12-12 22:17:33 -0500
+Processing by AdminsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[35mAdmin Load (0.2ms)[0m  SELECT  "admins".* FROM "admins"  WHERE "admins"."id" = $1 LIMIT 1  [["id", 10]]
+  Rendered admins/show.html.erb within layouts/application (1.3ms)
+Completed 500 Internal Server Error in 4ms
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    4: <h2>Email: <%= @admin.email %></h2><%= link_to "Edit Admin", edit_admin_path(@admin)%>
+    5: 
+    6: <ul>
+    7:   <%= form_for @category, url: new_category_path(@category) do |f| %>
+    8:     <li>
+    9:       <%= f.label :Category %>
+   10:       <%= f.text_field :name %>
+  app/views/admins/show.html.erb:7:in `_app_views_admins_show_html_erb__995397329304833748_70299848071340'
+  app/controllers/admins_controller.rb:32:in `show'
+
+
+  Rendered /Users/zahidjethani/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.8ms)
+  Rendered /Users/zahidjethani/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/zahidjethani/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (9.2ms)
+
+
+Started GET "/admins/10" for 127.0.0.1 at 2014-12-12 22:17:42 -0500
+Processing by AdminsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mAdmin Load (0.2ms)[0m  [1mSELECT  "admins".* FROM "admins"  WHERE "admins"."id" = $1 LIMIT 1[0m  [["id", 10]]
+  Rendered admins/show.html.erb within layouts/application (1.2ms)
+Completed 500 Internal Server Error in 4ms
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    4: <h2>Email: <%= @admin.email %></h2><%= link_to "Edit Admin", edit_admin_path(@admin)%>
+    5: 
+    6: <ul>
+    7:   <%= form_for @category, url: new_category_path do |f| %>
+    8:     <li>
+    9:       <%= f.label :Category %>
+   10:       <%= f.text_field :name %>
+  app/views/admins/show.html.erb:7:in `_app_views_admins_show_html_erb__995397329304833748_70299872305580'
+  app/controllers/admins_controller.rb:32:in `show'
+
+
+  Rendered /Users/zahidjethani/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /Users/zahidjethani/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/zahidjethani/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (9.4ms)
+
+
+Started GET "/admins/10" for 127.0.0.1 at 2014-12-12 22:18:30 -0500
+Processing by AdminsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[35mAdmin Load (0.1ms)[0m  SELECT  "admins".* FROM "admins"  WHERE "admins"."id" = $1 LIMIT 1  [["id", 10]]
+  Rendered admins/show.html.erb within layouts/application (36.6ms)
+Completed 500 Internal Server Error in 46ms
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    4: <h2>Email: <%= @admin.email %></h2><%= link_to "Edit Admin", edit_admin_path(@admin)%>
+    5: 
+    6: <ul>
+    7:   <%= form_for @category, url: new_category_path do |f| %>
+    8:     <li>
+    9:       <%= f.label :Category %>
+   10:       <%= f.text_field :name %>
+  app/views/admins/show.html.erb:7:in `_app_views_admins_show_html_erb__995397329304833748_70299872305580'
+  app/controllers/admins_controller.rb:32:in `show'
+
+
+  Rendered /Users/zahidjethani/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /Users/zahidjethani/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/zahidjethani/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (9.2ms)
+
+
+Started GET "/admins/10" for 127.0.0.1 at 2014-12-12 22:19:00 -0500
+Processing by AdminsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mAdmin Load (0.2ms)[0m  [1mSELECT  "admins".* FROM "admins"  WHERE "admins"."id" = $1 LIMIT 1[0m  [["id", 10]]
+  Rendered admins/show.html.erb within layouts/application (1.3ms)
+Completed 500 Internal Server Error in 4ms
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    4: <h2>Email: <%= @admin.email %></h2><%= link_to "Edit Admin", edit_admin_path(@admin)%>
+    5: 
+    6: <ul>
+    7:   <%= form_for @category, url: categories_path do |f| %>
+    8:     <li>
+    9:       <%= f.label :Category %>
+   10:       <%= f.text_field :name %>
+  app/views/admins/show.html.erb:7:in `_app_views_admins_show_html_erb__995397329304833748_70299846296280'
+  app/controllers/admins_controller.rb:32:in `show'
+
+
+  Rendered /Users/zahidjethani/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /Users/zahidjethani/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/zahidjethani/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (9.2ms)
+
+
+Started GET "/admins/10" for 127.0.0.1 at 2014-12-12 22:20:08 -0500
+Processing by AdminsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[35mAdmin Load (0.2ms)[0m  SELECT  "admins".* FROM "admins"  WHERE "admins"."id" = $1 LIMIT 1  [["id", 10]]
+  Rendered admins/show.html.erb within layouts/application (1.4ms)
+Completed 500 Internal Server Error in 4ms
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    4: <h2>Email: <%= @admin.email %></h2><%= link_to "Edit Admin", edit_admin_path(@admin)%>
+    5: 
+    6: <ul>
+    7:   <%= form_for @category, url: categories_path(@category) do |f| %>
+    8:     <li>
+    9:       <%= f.label :Category %>
+   10:       <%= f.text_field :name %>
+  app/views/admins/show.html.erb:7:in `_app_views_admins_show_html_erb__995397329304833748_70299847792460'
+  app/controllers/admins_controller.rb:32:in `show'
+
+
+  Rendered /Users/zahidjethani/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /Users/zahidjethani/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/zahidjethani/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (9.2ms)
+
+
+Started GET "/admins/10" for 127.0.0.1 at 2014-12-12 22:20:34 -0500
+Processing by AdminsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mAdmin Load (0.2ms)[0m  [1mSELECT  "admins".* FROM "admins"  WHERE "admins"."id" = $1 LIMIT 1[0m  [["id", 10]]
+  Rendered admins/show.html.erb within layouts/application (0.9ms)
+Completed 500 Internal Server Error in 4ms
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    4: <h2>Email: <%= @admin.email %></h2><%= link_to "Edit Admin", edit_admin_path(@admin)%>
+    5: 
+    6: <ul>
+    7:   <%= form_for @category, url: categories_path(@category) do |f| %>
+    8:     <li>
+    9:       <%= f.label :Category %>
+   10:       <%= f.text_field :name %>
+  app/views/admins/show.html.erb:7:in `_app_views_admins_show_html_erb__995397329304833748_70299847792460'
+  app/controllers/admins_controller.rb:32:in `show'
+
+
+  Rendered /Users/zahidjethani/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /Users/zahidjethani/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/zahidjethani/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (9.2ms)
+
+
+Started GET "/admins/10/edit" for 127.0.0.1 at 2014-12-12 22:20:36 -0500
+Processing by AdminsController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[35mAdmin Load (0.2ms)[0m  SELECT  "admins".* FROM "admins"  WHERE "admins"."id" = $1 LIMIT 1  [["id", 10]]
+  Rendered admins/edit.html.erb within layouts/application (1.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 10 LIMIT 1[0m
+Completed 200 OK in 61ms (Views: 59.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-12 22:20:36 -0500
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2014-12-12 22:20:36 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-12 22:20:36 -0500
+
+
+Started GET "/assets/admins.js?body=1" for 127.0.0.1 at 2014-12-12 22:20:36 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-12 22:20:36 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-12 22:20:36 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-12 22:20:36 -0500
+
+
+Started GET "/admins/10/edit" for 127.0.0.1 at 2014-12-12 22:20:45 -0500
+Processing by AdminsController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[35mAdmin Load (0.2ms)[0m  SELECT  "admins".* FROM "admins"  WHERE "admins"."id" = $1 LIMIT 1  [["id", 10]]
+  Rendered admins/edit.html.erb within layouts/application (1.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 10 LIMIT 1[0m
+Completed 200 OK in 28ms (Views: 25.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2014-12-12 22:20:45 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-12 22:20:45 -0500
+
+
+Started GET "/assets/admins.js?body=1" for 127.0.0.1 at 2014-12-12 22:20:45 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-12 22:20:45 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-12 22:20:45 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-12 22:20:45 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-12 22:20:45 -0500
+
+
+Started PUT "/admins/10" for 127.0.0.1 at 2014-12-12 22:20:46 -0500
+Processing by AdminsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TZeZgG2R/aB/U+wBcitEL7QdertDylx7gl3Myk05b24=", "admin"=>{"username"=>"gghj", "email"=>"u@gmail.com"}, "commit"=>"Update Admin", "id"=>"10"}
+  [1m[35mAdmin Load (0.2ms)[0m  SELECT  "admins".* FROM "admins"  WHERE "admins"."id" = $1 LIMIT 1  [["id", 10]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mAdmin Exists (0.4ms)[0m  SELECT  1 AS one FROM "admins"  WHERE ("admins"."username" = 'gghj' AND "admins"."id" != 10) LIMIT 1
+  [1m[36mAdmin Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "admins"  WHERE ("admins"."email" = 'u@gmail.com' AND "admins"."id" != 10) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/admins/10
+Completed 302 Found in 7ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/admins/10" for 127.0.0.1 at 2014-12-12 22:20:46 -0500
+Processing by AdminsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mAdmin Load (0.2ms)[0m  [1mSELECT  "admins".* FROM "admins"  WHERE "admins"."id" = $1 LIMIT 1[0m  [["id", 10]]
+  Rendered admins/show.html.erb within layouts/application (0.9ms)
+Completed 500 Internal Server Error in 3ms
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    4: <h2>Email: <%= @admin.email %></h2><%= link_to "Edit Admin", edit_admin_path(@admin)%>
+    5: 
+    6: <ul>
+    7:   <%= form_for @category, url: categories_path(@category) do |f| %>
+    8:     <li>
+    9:       <%= f.label :Category %>
+   10:       <%= f.text_field :name %>
+  app/views/admins/show.html.erb:7:in `_app_views_admins_show_html_erb__995397329304833748_70299847792460'
+  app/controllers/admins_controller.rb:32:in `show'
+
+
+  Rendered /Users/zahidjethani/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.8ms)
+  Rendered /Users/zahidjethani/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/zahidjethani/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (8.8ms)
+
+
+Started GET "/admins/10/edit" for 127.0.0.1 at 2014-12-12 22:20:49 -0500
+Processing by AdminsController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[35mAdmin Load (0.2ms)[0m  SELECT  "admins".* FROM "admins"  WHERE "admins"."id" = $1 LIMIT 1  [["id", 10]]
+  Rendered admins/edit.html.erb within layouts/application (1.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 10 LIMIT 1[0m
+Completed 200 OK in 61ms (Views: 58.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2014-12-12 22:20:50 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-12 22:20:50 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-12 22:20:50 -0500
+
+
+Started GET "/assets/admins.js?body=1" for 127.0.0.1 at 2014-12-12 22:20:50 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-12 22:20:50 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-12 22:20:50 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-12 22:20:50 -0500
+
+
+Started GET "/admins/10/edit" for 127.0.0.1 at 2014-12-12 22:21:04 -0500
+Processing by AdminsController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[35mAdmin Load (0.2ms)[0m  SELECT  "admins".* FROM "admins"  WHERE "admins"."id" = $1 LIMIT 1  [["id", 10]]
+  Rendered admins/edit.html.erb within layouts/application (1.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 10 LIMIT 1[0m
+Completed 200 OK in 27ms (Views: 25.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2014-12-12 22:21:04 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-12 22:21:04 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-12 22:21:04 -0500
+
+
+Started GET "/assets/admins.js?body=1" for 127.0.0.1 at 2014-12-12 22:21:04 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-12 22:21:04 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-12 22:21:04 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-12 22:21:04 -0500
+
+
+Started GET "/admins/new" for 127.0.0.1 at 2014-12-12 22:21:10 -0500
+Processing by AdminsController#new as HTML
+  Rendered admins/new.html.erb within layouts/application (8.7ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 10 LIMIT 1
+Completed 200 OK in 66ms (Views: 64.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-12 22:21:10 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-12 22:21:10 -0500
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2014-12-12 22:21:10 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-12 22:21:10 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-12 22:21:10 -0500
+
+
+Started GET "/assets/admins.js?body=1" for 127.0.0.1 at 2014-12-12 22:21:10 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-12 22:21:10 -0500
+
+
+Started POST "/admins" for 127.0.0.1 at 2014-12-12 22:21:17 -0500
+Processing by AdminsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TZeZgG2R/aB/U+wBcitEL7QdertDylx7gl3Myk05b24=", "admin"=>{"username"=>"j", "email"=>"j@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create Admin"}
+Unpermitted parameters: password_confirmation
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAdmin Exists (0.3ms)[0m  SELECT  1 AS one FROM "admins"  WHERE "admins"."username" = 'j' LIMIT 1
+  [1m[36mAdmin Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "admins"  WHERE "admins"."email" = 'j@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "admins" ("created_at", "email", "password_digest", "updated_at", "username") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-12-13 03:21:17.560464"], ["email", "j@gmail.com"], ["password_digest", "$2a$10$slAIwUL/zFGjCyqw9IsA/uIl.sS5vnWJxtIuHy1vTaRAAoGpdxZEW"], ["updated_at", "2014-12-13 03:21:17.560464"], ["username", "j"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Completed 500 Internal Server Error in 122ms
+
+NameError (undefined local variable or method `admin' for #<AdminsController:0x007fdfef89be90>):
+  app/controllers/admins_controller.rb:10:in `create'
+
+
+  Rendered /Users/zahidjethani/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/zahidjethani/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.8ms)
+  Rendered /Users/zahidjethani/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/zahidjethani/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.5ms)
+
+
+Started POST "/admins" for 127.0.0.1 at 2014-12-12 22:21:49 -0500
+Processing by AdminsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TZeZgG2R/aB/U+wBcitEL7QdertDylx7gl3Myk05b24=", "admin"=>{"username"=>"j", "email"=>"j@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create Admin"}
+Unpermitted parameters: password_confirmation
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mAdmin Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "admins"  WHERE "admins"."username" = 'j' LIMIT 1[0m
+  [1m[35mAdmin Exists (0.2ms)[0m  SELECT  1 AS one FROM "admins"  WHERE "admins"."email" = 'j@gmail.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  Rendered admins/new.html.erb within layouts/application (2.1ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 10 LIMIT 1
+Completed 200 OK in 154ms (Views: 64.6ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2014-12-12 22:21:50 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-12 22:21:50 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-12 22:21:50 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-12 22:21:50 -0500
+
+
+Started GET "/assets/admins.js?body=1" for 127.0.0.1 at 2014-12-12 22:21:50 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-12 22:21:50 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-12 22:21:50 -0500
+
+
+Started POST "/admins" for 127.0.0.1 at 2014-12-12 22:22:05 -0500
+Processing by AdminsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TZeZgG2R/aB/U+wBcitEL7QdertDylx7gl3Myk05b24=", "admin"=>{"username"=>"w", "email"=>"j@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create Admin"}
+Unpermitted parameters: password_confirmation
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mAdmin Exists (0.2ms)[0m  SELECT  1 AS one FROM "admins"  WHERE "admins"."username" = 'w' LIMIT 1
+  [1m[36mAdmin Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "admins"  WHERE "admins"."email" = 'j@gmail.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  Rendered admins/new.html.erb within layouts/application (1.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 10 LIMIT 1[0m
+Completed 200 OK in 104ms (Views: 25.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-12 22:22:05 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-12 22:22:05 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-12 22:22:05 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-12 22:22:05 -0500
+
+
+Started GET "/assets/admins.js?body=1" for 127.0.0.1 at 2014-12-12 22:22:05 -0500
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2014-12-12 22:22:05 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-12 22:22:05 -0500
+
+
+Started POST "/admins" for 127.0.0.1 at 2014-12-12 22:22:37 -0500
+Processing by AdminsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TZeZgG2R/aB/U+wBcitEL7QdertDylx7gl3Myk05b24=", "admin"=>{"username"=>"dd", "email"=>"kdjs@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create Admin"}
+Unpermitted parameters: password_confirmation
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mAdmin Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "admins"  WHERE "admins"."username" = 'dd' LIMIT 1[0m
+  [1m[35mAdmin Exists (0.2ms)[0m  SELECT  1 AS one FROM "admins"  WHERE "admins"."email" = 'kdjs@gmail.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "admins" ("created_at", "email", "password_digest", "updated_at", "username") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2014-12-13 03:22:37.142132"], ["email", "kdjs@gmail.com"], ["password_digest", "$2a$10$RN72.FKtUwjil7sekxveruXOGdD3kbAmlcduvZF2GYcxRVOkbq292"], ["updated_at", "2014-12-13 03:22:37.142132"], ["username", "dd"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+Completed 500 Internal Server Error in 80ms
+
+ActionController::UrlGenerationError (No route matches {:action=>"show", :controller=>"admins"} missing required keys: [:id]):
+  app/controllers/admins_controller.rb:10:in `create'
+
+
+  Rendered /Users/zahidjethani/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/zahidjethani/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.8ms)
+  Rendered /Users/zahidjethani/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/zahidjethani/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.6ms)
+
+
+Started POST "/admins" for 127.0.0.1 at 2014-12-12 22:22:43 -0500
+Processing by AdminsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TZeZgG2R/aB/U+wBcitEL7QdertDylx7gl3Myk05b24=", "admin"=>{"username"=>"dd", "email"=>"kdjs@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create Admin"}
+Unpermitted parameters: password_confirmation
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mAdmin Exists (0.3ms)[0m  SELECT  1 AS one FROM "admins"  WHERE "admins"."username" = 'dd' LIMIT 1
+  [1m[36mAdmin Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "admins"  WHERE "admins"."email" = 'kdjs@gmail.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  Rendered admins/new.html.erb within layouts/application (2.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 10 LIMIT 1[0m
+Completed 200 OK in 158ms (Views: 31.8ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-12 22:22:44 -0500
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2014-12-12 22:22:44 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-12 22:22:44 -0500
+
+
+Started GET "/assets/admins.js?body=1" for 127.0.0.1 at 2014-12-12 22:22:44 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-12 22:22:44 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-12 22:22:44 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-12 22:22:44 -0500
+
+
+Started POST "/admins" for 127.0.0.1 at 2014-12-12 22:22:53 -0500
+Processing by AdminsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TZeZgG2R/aB/U+wBcitEL7QdertDylx7gl3Myk05b24=", "admin"=>{"username"=>"34", "email"=>"33@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create Admin"}
+Unpermitted parameters: password_confirmation
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mAdmin Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "admins"  WHERE "admins"."username" = '34' LIMIT 1[0m
+  [1m[35mAdmin Exists (0.2ms)[0m  SELECT  1 AS one FROM "admins"  WHERE "admins"."email" = '33@gmail.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "admins" ("created_at", "email", "password_digest", "updated_at", "username") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2014-12-13 03:22:53.572843"], ["email", "33@gmail.com"], ["password_digest", "$2a$10$TUh80Gzu3RPd.TU/EM2L6.wMOO0647fxdnRqdsFZw5Ch9Zyv4tSp2"], ["updated_at", "2014-12-13 03:22:53.572843"], ["username", "34"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Redirected to http://localhost:3000/admins/13
+Completed 302 Found in 78ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/admins/13" for 127.0.0.1 at 2014-12-12 22:22:53 -0500
+Processing by AdminsController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mAdmin Load (0.1ms)[0m  [1mSELECT  "admins".* FROM "admins"  WHERE "admins"."id" = $1 LIMIT 1[0m  [["id", 13]]
+  Rendered admins/show.html.erb within layouts/application (0.7ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 13 LIMIT 1
+Completed 200 OK in 56ms (Views: 54.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-12 22:22:53 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-12 22:22:53 -0500
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2014-12-12 22:22:53 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-12 22:22:53 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-12 22:22:53 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-12 22:22:53 -0500
+
+
+Started GET "/assets/admins.js?body=1" for 127.0.0.1 at 2014-12-12 22:22:53 -0500
+
+
+Started GET "/admins/13/edit" for 127.0.0.1 at 2014-12-12 22:22:57 -0500
+Processing by AdminsController#edit as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mAdmin Load (0.2ms)[0m  [1mSELECT  "admins".* FROM "admins"  WHERE "admins"."id" = $1 LIMIT 1[0m  [["id", 13]]
+  Rendered admins/edit.html.erb within layouts/application (1.5ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 13 LIMIT 1
+Completed 200 OK in 64ms (Views: 62.5ms | ActiveRecord: 0.4ms)
+
+
+Started PUT "/admins/13" for 127.0.0.1 at 2014-12-12 22:23:00 -0500
+Processing by AdminsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TZeZgG2R/aB/U+wBcitEL7QdertDylx7gl3Myk05b24=", "admin"=>{"username"=>"fodkshfad", "email"=>"33@gmail.com"}, "commit"=>"Update Admin", "id"=>"13"}
+  [1m[36mAdmin Load (0.2ms)[0m  [1mSELECT  "admins".* FROM "admins"  WHERE "admins"."id" = $1 LIMIT 1[0m  [["id", 13]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mAdmin Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "admins"  WHERE ("admins"."username" = 'fodkshfad' AND "admins"."id" != 13) LIMIT 1[0m
+  [1m[35mAdmin Exists (0.2ms)[0m  SELECT  1 AS one FROM "admins"  WHERE ("admins"."email" = '33@gmail.com' AND "admins"."id" != 13) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "admins" SET "updated_at" = $1, "username" = $2 WHERE "admins"."id" = 13[0m  [["updated_at", "2014-12-13 03:23:00.874924"], ["username", "fodkshfad"]]
+  [1m[35m (6.4ms)[0m  COMMIT
+Redirected to http://localhost:3000/admins/13
+Completed 302 Found in 13ms (ActiveRecord: 7.3ms)
+
+
+Started GET "/admins/13" for 127.0.0.1 at 2014-12-12 22:23:00 -0500
+Processing by AdminsController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mAdmin Load (0.1ms)[0m  [1mSELECT  "admins".* FROM "admins"  WHERE "admins"."id" = $1 LIMIT 1[0m  [["id", 13]]
+  Rendered admins/show.html.erb within layouts/application (0.2ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 13 LIMIT 1
+Completed 200 OK in 26ms (Views: 24.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2014-12-12 22:23:01 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-12 22:23:01 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-12 22:23:01 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-12 22:23:01 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-12 22:23:01 -0500
+
+
+Started GET "/assets/admins.js?body=1" for 127.0.0.1 at 2014-12-12 22:23:01 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-12 22:23:01 -0500
