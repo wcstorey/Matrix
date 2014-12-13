@@ -45,7 +45,7 @@ float: right;
 
 .container {
   text-align:center;
-  width:50%;
+  width:70%;
   margin: 70px auto;
   padding-top: 60px;
  }
@@ -154,4 +154,26 @@ input[type=submit] :active {
 .comment {
   border-top: 1px solid rgb(216, 210, 210);
   border-bottom: 1px solid rgb(216, 210, 210);
+}
+
+.vote {
+  border-radius: 10px;
+  padding: 10px 0 10px 0;
+  margin: 10px 0 10px 0;
+  width: 90px;
+
+  display: inline-block;
+  background: linear-gradient(#6600FF, #A3A3C2);
+}
+
+.vote a {
+  font-size: 14px;
+  color: white;
+}
+
+.post_wrapper {
+border-top: 1px solid rgb(216, 210, 210);
+  border-bottom: 1px solid rgb(216, 210, 210);
+  /*background-color:#EBEBFF;*/
+  background: radial-gradient(#EBEBFF, #F5F5FF, white);
 }
