@@ -4,12 +4,12 @@
   <p><%= @post.content %></p>
 
   <div class="vote">
-    <%= link_to 'Upvote', votes_path, method: 'POST' %>
+    <%= link_to 'Upvote', votes_path(post: @post), method: 'POST' %>
   </div>
   <div class="vote">
-    <%= link_to 'Downvote', vote_path(@post.id), method: 'DELETE' %>
+    <%= link_to 'Downvote', vote_path(post: @post), method: 'DELETE' %>
   </div>
-  <p><%= @post.votes.count %> Votes</p>
+  <p><%= @post.vote_count %> Votes</p>
 </div>
 
 <% if current_user && @post.user_id == current_user.id %>

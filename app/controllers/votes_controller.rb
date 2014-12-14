@@ -11,7 +11,11 @@ class VotesController < ApplicationController
     if @upvote.valid?
       vote_count(@post)
     end
-    redirect_to category_post_path(@post.category_id, @post.id)
+    if @post.parent_id.nil?
+      redirect_to category_post_path(@post.category_id, @post.id)
+    else
+      redirect_to category_post_path(@post.category_id, @post.parent_id)
+    end
   end
 
   def destroy
@@ -21,7 +25,11 @@ class VotesController < ApplicationController
     if @downvote.valid?
       vote_count(@post)
     end
-    redirect_to category_post_path(@post.category_id, @post.id)
+    if @post.parent_id.nil?
+      redirect_to category_post_path(@post.category_id, @post.id)
+    else
+      redirect_to category_post_path(@post.category_id, @post.parent_id)
+    end
   end
 
   private
