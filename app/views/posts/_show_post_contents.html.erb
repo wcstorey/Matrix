@@ -1,5 +1,9 @@
 <div class="post_wrapper">
-  <h3> at <%= @post.created_at %>, <%= @post.user.username%> wrote:</h3>
+  <% if @post.parent.nil? %>
+    <h3> at <%= @post.created_at %>, <%= @post.user.username%> wrote:</h3>
+  <% else %>
+    <h3> at <%= @post.created_at %>, <%= @post.user.username%> replied to <%= @post.parent.user.username%>:</h3>
+  <% end %>
   <h2><%= @post.title %> </h2>
   <p><%= @post.content %></p>
 
@@ -15,8 +19,8 @@
 
 
 <% if current_user && @post.user_id == current_user.id %>
-  <span><%= link_to 'edit', edit_category_post_path(@post.category, @post) %></span><br>
-  <span><%= link_to 'delete', category_post_path(@post.category, @post), :method => :delete %></span><br>
+  <div class="edit_delete"><%= link_to 'edit', edit_category_post_path(@post.category, @post) %></div>
+  <div class="edit_delete"><%= link_to 'delete', category_post_path(@post.category, @post), :method => :delete %></div>
 <% end %>
 
 <% if current_user %>

@@ -183,6 +183,22 @@ input[type=submit] :active {
   color: white;
 }
 
+.edit_delete {
+  border-radius: 10px;
+  /*height: 40px;*/
+  padding: 10px 0 10px 0;
+  margin: 10px 0 10px 0;
+  width: 90px;
+  text-align: center;
+  display: inline-block;
+  background: linear-gradient(#00CCFF, #B2F0FF);
+}
+
+.edit_delete a {
+  font-size: 14px;
+  color: white;
+}
+
 .post_wrapper {
   width: 90%;
   border-top: 1px solid rgb(216, 210, 210);
