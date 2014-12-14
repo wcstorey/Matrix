@@ -10,6 +10,11 @@ Rails.application.routes.draw do
   #USER routes
   resources :users
 
+  #Admin routes
+  resources :admins
+  post ('/admins/check') => 'admins#check'
+  post ('/admins/login') => 'admins#login'
+
   #SESSIONS routes
   get ('/login') => 'sessions#new'
   post ('/login') => 'sessions#create'
@@ -63,7 +68,7 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-  resources :categories, only: [:index, :show] do
+  resources :categories, only: [:index, :show, :new, :create, :destroy] do
     resources :posts
   end
 
