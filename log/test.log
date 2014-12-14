@@ -1292,3 +1292,16 @@ Completed 500 Internal Server Error in 1ms
   [1m[36mAdmin Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "admins"  WHERE "admins"."username" IS NULL LIMIT 1[0m
   [1m[35mAdmin Exists (0.1ms)[0m  SELECT  1 AS one FROM "admins"  WHERE "admins"."email" IS NULL LIMIT 1
   [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mAdmin Load (0.3ms)[0m  [1mSELECT  "admins".* FROM "admins"  WHERE "admins"."username" IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mAdmin Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "admins"  WHERE "admins"."username" IS NULL LIMIT 1[0m
+  [1m[35mAdmin Exists (0.2ms)[0m  SELECT  1 AS one FROM "admins"  WHERE "admins"."email" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mAdmin Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "admins"  WHERE "admins"."username" IS NULL LIMIT 1[0m
+  [1m[35mAdmin Exists (0.1ms)[0m  SELECT  1 AS one FROM "admins"  WHERE "admins"."email" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
