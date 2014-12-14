@@ -15187,3 +15187,1054 @@ Started GET "/assets/admins.js?body=1" for 127.0.0.1 at 2014-12-13 17:14:52 -050
 
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-13 17:14:52 -0500
+  [1m[36m (7.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (12.9ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateCategories (20141211213752)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (20.4ms)[0m  [1mCREATE TABLE "categories" ("id" serial primary key, "name" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (6.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141211213752"]]
+  [1m[36m (6.3ms)[0m  [1mCOMMIT[0m
+Migrating to CreateUsers (20141211214447)
+  [1m[35m (5.9ms)[0m  BEGIN
+  [1m[36m (2.9ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "username" character varying(255), "email" character varying(255), "password_digest" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141211214447"]]
+  [1m[36m (1.7ms)[0m  [1mCOMMIT[0m
+Migrating to CreatePosts (20141211214859)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (25.1ms)[0m  [1mCREATE TABLE "posts" ("id" serial primary key, "title" character varying(255), "content" text, "category_id" integer, "user_id" integer, "vote_count" integer DEFAULT 0, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141211214859"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Migrating to CreateComments (20141211215454)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (2.3ms)[0m  [1mCREATE TABLE "comments" ("id" serial primary key, "content" text, "user_id" integer, "post_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141211215454"]]
+  [1m[36m (2.8ms)[0m  [1mCOMMIT[0m
+Migrating to CreateVotes (20141211215702)
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36m (2.2ms)[0m  [1mCREATE TABLE "votes" ("id" serial primary key, "user_id" integer, "voteable_id" integer, "voteable_type" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141211215702"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Migrating to AddParentIdToPosts (20141212154247)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "posts" ADD COLUMN "parent_id" integer[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141212154247"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+Migrating to DropComments (20141212155702)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.8ms)[0m  [1mDROP TABLE "comments"[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141212155702"]]
+  [1m[36m (2.2ms)[0m  [1mCOMMIT[0m
+Migrating to CreateAdmins (20141213013005)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (2.4ms)[0m  [1mCREATE TABLE "admins" ("id" serial primary key, "username" character varying(255), "email" character varying(255), "password_digest" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141213013005"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Migrating to AddReferencesAdminToCategories (20141213014517)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "categories" ADD COLUMN "admin_id" integer[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141213014517"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+Migrating to ChangeVoteCountonVotes (20141213213229)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "posts" ALTER COLUMN "vote_count" SET DEFAULT 0[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141213213229"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Migrating to AddVoteTypeColumnToVotes (20141213222024)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "votes" ADD COLUMN "postive_vote" boolean[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141213222024"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/admins" for 127.0.0.1 at 2014-12-14 15:16:54 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by AdminsController#index as HTML
+  Rendered admins/index.html.erb within layouts/application (56.0ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 22 LIMIT 1
+Completed 200 OK in 490ms (Views: 479.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2014-12-14 15:16:55 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-14 15:16:55 -0500
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2014-12-14 15:16:55 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-14 15:16:55 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-14 15:16:55 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-14 15:16:55 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-14 15:16:55 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2014-12-14 15:16:55 -0500
+Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered categories/index.html.erb within layouts/application (1.3ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 22 LIMIT 1
+Completed 200 OK in 42ms (Views: 31.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-14 15:16:56 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-14 15:16:56 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-14 15:16:56 -0500
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2014-12-14 15:16:56 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-14 15:16:56 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-14 15:16:56 -0500
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2014-12-14 15:16:56 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Exists (0.6ms)[0m  SELECT  1 AS one FROM "categories"  WHERE "categories"."name" = 'Ruby' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "categories" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2014-12-14 20:17:10.277713"], ["name", "Ruby"], ["updated_at", "2014-12-14 20:17:10.277713"]]
+  [1m[35m (6.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Exists (0.4ms)[0m  SELECT  1 AS one FROM "categories"  WHERE "categories"."name" = 'Javascript' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "categories" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2014-12-14 20:17:10.289292"], ["name", "Javascript"], ["updated_at", "2014-12-14 20:17:10.289292"]]
+  [1m[35m (6.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Exists (0.3ms)[0m  SELECT  1 AS one FROM "categories"  WHERE "categories"."name" = 'C++' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "categories" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2014-12-14 20:17:10.298192"], ["name", "C++"], ["updated_at", "2014-12-14 20:17:10.298192"]]
+  [1m[35m (5.0ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Exists (0.2ms)[0m  SELECT  1 AS one FROM "categories"  WHERE "categories"."name" = 'Python' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "categories" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2014-12-14 20:17:10.305579"], ["name", "Python"], ["updated_at", "2014-12-14 20:17:10.305579"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Exists (0.2ms)[0m  SELECT  1 AS one FROM "categories"  WHERE "categories"."name" = 'PHP' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "categories" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2014-12-14 20:17:10.307602"], ["name", "PHP"], ["updated_at", "2014-12-14 20:17:10.307602"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+
+
+Started GET "/admins" for 127.0.0.1 at 2014-12-14 15:17:32 -0500
+Processing by AdminsController#index as HTML
+  Rendered admins/index.html.erb within layouts/application (1.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 22 LIMIT 1[0m
+Completed 200 OK in 66ms (Views: 65.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2014-12-14 15:17:33 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-14 15:17:33 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-14 15:17:33 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-14 15:17:33 -0500
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2014-12-14 15:17:33 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-14 15:17:33 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-14 15:17:33 -0500
+
+
+Started GET "/admins/new" for 127.0.0.1 at 2014-12-14 15:17:33 -0500
+Processing by AdminsController#new as HTML
+  Rendered admins/new.html.erb within layouts/application (13.9ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 22 LIMIT 1
+Completed 200 OK in 47ms (Views: 40.6ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2014-12-14 15:17:34 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-14 15:17:34 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-14 15:17:34 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-14 15:17:34 -0500
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2014-12-14 15:17:34 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-14 15:17:34 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-14 15:17:34 -0500
+
+
+Started GET "/admins/new" for 127.0.0.1 at 2014-12-14 15:17:34 -0500
+Processing by AdminsController#new as HTML
+  Rendered admins/new.html.erb within layouts/application (2.2ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 22 LIMIT 1[0m
+Completed 200 OK in 91ms (Views: 89.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-14 15:17:34 -0500
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2014-12-14 15:17:34 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-14 15:17:34 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-14 15:17:34 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-14 15:17:34 -0500
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2014-12-14 15:17:34 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-14 15:17:34 -0500
+
+
+Started GET "/admins/new" for 127.0.0.1 at 2014-12-14 15:20:59 -0500
+Processing by AdminsController#new as HTML
+  Rendered admins/new.html.erb within layouts/application (4.7ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 22 LIMIT 1
+Completed 200 OK in 42ms (Views: 36.7ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-14 15:21:00 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-14 15:21:00 -0500
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2014-12-14 15:21:00 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-14 15:21:00 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-14 15:21:00 -0500
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2014-12-14 15:21:00 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-14 15:21:00 -0500
+
+
+Started GET "/admins/new" for 127.0.0.1 at 2014-12-14 15:21:06 -0500
+Processing by AdminsController#new as HTML
+  Rendered admins/new.html.erb within layouts/application (5.7ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 22 LIMIT 1[0m
+Completed 200 OK in 36ms (Views: 34.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-14 15:21:06 -0500
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2014-12-14 15:21:06 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-14 15:21:06 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-14 15:21:06 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-14 15:21:06 -0500
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2014-12-14 15:21:06 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-14 15:21:06 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2014-12-14 15:21:27 -0500
+Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered categories/index.html.erb within layouts/application (5.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 78ms (Views: 73.3ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2014-12-14 15:21:27 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-14 15:21:27 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-14 15:21:27 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-14 15:21:27 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-14 15:21:27 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-14 15:21:27 -0500
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2014-12-14 15:21:27 -0500
+
+
+Started GET "/admins" for 127.0.0.1 at 2014-12-14 15:21:31 -0500
+Processing by AdminsController#index as HTML
+  Rendered admins/index.html.erb within layouts/application (2.5ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 69ms (Views: 68.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2014-12-14 15:21:31 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-14 15:21:31 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-14 15:21:31 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-14 15:21:31 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-14 15:21:31 -0500
+
+
+Started GET "/admins" for 127.0.0.1 at 2014-12-14 15:21:34 -0500
+Processing by AdminsController#index as HTML
+  Rendered admins/index.html.erb within layouts/application (3.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 45ms (Views: 43.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2014-12-14 15:21:34 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-14 15:21:34 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-14 15:21:34 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-14 15:21:34 -0500
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2014-12-14 15:21:34 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-14 15:21:34 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-14 15:21:34 -0500
+
+
+Started POST "/admins/check" for 127.0.0.1 at 2014-12-14 15:22:31 -0500
+Processing by AdminsController#check as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9Fp71p4EJnHAf2N/C5R3ym/ZE7sJFbSni7aoFTBgK9s=", "admin_id"=>"dksahfdsk", "commit"=>"Save "}
+Redirected to http://localhost:3000/admins
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/admins" for 127.0.0.1 at 2014-12-14 15:22:31 -0500
+Processing by AdminsController#index as HTML
+  Rendered admins/index.html.erb within layouts/application (1.5ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 72ms (Views: 71.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2014-12-14 15:22:31 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-14 15:22:31 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-14 15:22:31 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-14 15:22:31 -0500
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2014-12-14 15:22:31 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-14 15:22:31 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-14 15:22:31 -0500
+
+
+Started POST "/admins/login" for 127.0.0.1 at 2014-12-14 15:22:36 -0500
+Processing by AdminsController#login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9Fp71p4EJnHAf2N/C5R3ym/ZE7sJFbSni7aoFTBgK9s=", "username"=>"dafslkj", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mAdmin Load (0.6ms)[0m  [1mSELECT  "admins".* FROM "admins"  WHERE "admins"."username" = 'dafslkj' LIMIT 1[0m
+Redirected to http://localhost:3000/admins
+Completed 302 Found in 2ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/admins" for 127.0.0.1 at 2014-12-14 15:22:36 -0500
+Processing by AdminsController#index as HTML
+  Rendered admins/index.html.erb within layouts/application (1.2ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 29ms (Views: 27.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2014-12-14 15:22:36 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-14 15:22:36 -0500
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2014-12-14 15:22:36 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-14 15:22:36 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-14 15:22:36 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-14 15:22:36 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-14 15:22:36 -0500
+
+
+Started POST "/admins/login" for 127.0.0.1 at 2014-12-14 15:22:51 -0500
+Processing by AdminsController#login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9Fp71p4EJnHAf2N/C5R3ym/ZE7sJFbSni7aoFTBgK9s=", "username"=>"dklsajfadl", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mAdmin Load (0.3ms)[0m  [1mSELECT  "admins".* FROM "admins"  WHERE "admins"."username" = 'dklsajfadl' LIMIT 1[0m
+Redirected to http://localhost:3000/admins
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/admins" for 127.0.0.1 at 2014-12-14 15:22:51 -0500
+Processing by AdminsController#index as HTML
+  Rendered admins/index.html.erb within layouts/application (2.4ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 27ms (Views: 25.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2014-12-14 15:22:51 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-14 15:22:51 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-14 15:22:51 -0500
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2014-12-14 15:22:51 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-14 15:22:51 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-14 15:22:51 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-14 15:22:51 -0500
+
+
+Started GET "/admins/new" for 127.0.0.1 at 2014-12-14 15:23:22 -0500
+Processing by AdminsController#new as HTML
+  Rendered admins/new.html.erb within layouts/application (1.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 30ms (Views: 28.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2014-12-14 15:23:22 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-14 15:23:22 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-14 15:23:22 -0500
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2014-12-14 15:23:22 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-14 15:23:22 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-14 15:23:22 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-14 15:23:22 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2014-12-14 15:24:59 -0500
+Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered categories/index.html.erb within layouts/application (1.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 22 LIMIT 1[0m
+Completed 200 OK in 25ms (Views: 23.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2014-12-14 15:24:59 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-14 15:24:59 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-14 15:24:59 -0500
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2014-12-14 15:24:59 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-14 15:24:59 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-14 15:24:59 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-14 15:24:59 -0500
+
+
+Started GET "/admins/new" for 127.0.0.1 at 2014-12-14 15:25:05 -0500
+Processing by AdminsController#new as HTML
+  Rendered admins/new.html.erb within layouts/application (2.2ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 22 LIMIT 1
+Completed 200 OK in 78ms (Views: 77.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-14 15:25:05 -0500
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2014-12-14 15:25:05 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-14 15:25:05 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-14 15:25:05 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-14 15:25:05 -0500
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2014-12-14 15:25:05 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-14 15:25:05 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2014-12-14 15:26:25 -0500
+Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered categories/index.html.erb within layouts/application (6.9ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 39ms (Views: 33.0ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2014-12-14 15:26:25 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-14 15:26:25 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-14 15:26:26 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-14 15:26:26 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-14 15:26:26 -0500
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2014-12-14 15:26:26 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-14 15:26:26 -0500
+
+
+Started GET "/admins/new" for 127.0.0.1 at 2014-12-14 15:26:32 -0500
+Processing by AdminsController#new as HTML
+  Rendered admins/new.html.erb within layouts/application (6.0ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 38ms (Views: 32.2ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-14 15:26:32 -0500
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2014-12-14 15:26:32 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-14 15:26:32 -0500
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2014-12-14 15:26:32 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-14 15:26:32 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-14 15:26:32 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-14 15:26:32 -0500
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2014-12-14 15:26:38 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-14 15:26:38 -0500
+
+
+Started GET "/admins/new" for 127.0.0.1 at 2014-12-14 15:27:10 -0500
+Processing by AdminsController#new as HTML
+Redirected to http://localhost:3000/admins
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/admins" for 127.0.0.1 at 2014-12-14 15:27:10 -0500
+Processing by AdminsController#index as HTML
+  Rendered admins/index.html.erb within layouts/application (2.4ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 30ms (Views: 28.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2014-12-14 15:27:10 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-14 15:27:10 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-14 15:27:10 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-14 15:27:10 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-14 15:27:10 -0500
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2014-12-14 15:27:10 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-14 15:27:10 -0500
+
+
+Started GET "/admins/new" for 127.0.0.1 at 2014-12-14 15:27:14 -0500
+Processing by AdminsController#new as HTML
+Redirected to http://localhost:3000/admins
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/admins/new" for 127.0.0.1 at 2014-12-14 15:27:14 -0500
+Processing by AdminsController#new as HTML
+Redirected to http://localhost:3000/admins
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/admins" for 127.0.0.1 at 2014-12-14 15:27:14 -0500
+Processing by AdminsController#index as HTML
+  Rendered admins/index.html.erb within layouts/application (2.2ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 27ms (Views: 26.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-14 15:27:14 -0500
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2014-12-14 15:27:15 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-14 15:27:15 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-14 15:27:15 -0500
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2014-12-14 15:27:15 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-14 15:27:15 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-14 15:27:15 -0500
+
+
+Started GET "/admins/new" for 127.0.0.1 at 2014-12-14 15:27:18 -0500
+Processing by AdminsController#new as HTML
+Redirected to http://localhost:3000/admins
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/admins/new" for 127.0.0.1 at 2014-12-14 15:27:18 -0500
+Processing by AdminsController#new as HTML
+Redirected to http://localhost:3000/admins
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/admins" for 127.0.0.1 at 2014-12-14 15:27:18 -0500
+Processing by AdminsController#index as HTML
+  Rendered admins/index.html.erb within layouts/application (1.2ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 27ms (Views: 26.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2014-12-14 15:27:18 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-14 15:27:18 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-14 15:27:18 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-14 15:27:18 -0500
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2014-12-14 15:27:19 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-14 15:27:19 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-14 15:27:19 -0500
+
+
+Started POST "/admins/login" for 127.0.0.1 at 2014-12-14 15:28:53 -0500
+Processing by AdminsController#login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"NS8pp4YrBbKnafGA5xm5EdjpVDebmb7sGEsN4j1bI8M=", "username"=>"klsadjf", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mAdmin Load (0.6ms)[0m  [1mSELECT  "admins".* FROM "admins"  WHERE "admins"."username" = 'klsadjf' LIMIT 1[0m
+Redirected to http://localhost:3000/admins
+Completed 302 Found in 2ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/admins" for 127.0.0.1 at 2014-12-14 15:28:53 -0500
+Processing by AdminsController#index as HTML
+  Rendered admins/index.html.erb within layouts/application (1.2ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 73ms (Views: 72.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-14 15:28:53 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-14 15:28:53 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-14 15:28:53 -0500
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2014-12-14 15:28:53 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-14 15:28:53 -0500
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2014-12-14 15:28:53 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-14 15:28:53 -0500
+
+
+Started POST "/admins/check" for 127.0.0.1 at 2014-12-14 15:28:59 -0500
+Processing by AdminsController#check as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"NS8pp4YrBbKnafGA5xm5EdjpVDebmb7sGEsN4j1bI8M=", "admin_id"=>"Matrix", "commit"=>"Save "}
+Redirected to http://localhost:3000/admins/new
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/admins/new" for 127.0.0.1 at 2014-12-14 15:28:59 -0500
+Processing by AdminsController#new as HTML
+  Rendered admins/new.html.erb within layouts/application (3.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 29ms (Views: 28.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2014-12-14 15:28:59 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-14 15:28:59 -0500
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2014-12-14 15:28:59 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-14 15:28:59 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-14 15:28:59 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-14 15:28:59 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-14 15:28:59 -0500
+
+
+Started POST "/admins" for 127.0.0.1 at 2014-12-14 15:29:22 -0500
+Processing by AdminsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"NS8pp4YrBbKnafGA5xm5EdjpVDebmb7sGEsN4j1bI8M=", "admin"=>{"username"=>"kfdlasj", "email"=>"ldsfsdjfl", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create Admin"}
+Unpermitted parameters: password_confirmation
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mAdmin Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "admins"  WHERE "admins"."username" = 'kfdlasj' LIMIT 1[0m
+  [1m[35mAdmin Exists (0.2ms)[0m  SELECT  1 AS one FROM "admins"  WHERE "admins"."email" = 'ldsfsdjfl' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  Rendered admins/new.html.erb within layouts/application (2.3ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 150ms (Views: 71.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-14 15:29:22 -0500
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2014-12-14 15:29:22 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-14 15:29:22 -0500
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2014-12-14 15:29:22 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-14 15:29:22 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-14 15:29:22 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-14 15:29:22 -0500
+
+
+Started POST "/admins" for 127.0.0.1 at 2014-12-14 15:29:29 -0500
+Processing by AdminsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"NS8pp4YrBbKnafGA5xm5EdjpVDebmb7sGEsN4j1bI8M=", "admin"=>{"username"=>"", "email"=>"ldsfsdjfl", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create Admin"}
+Unpermitted parameters: password_confirmation
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mAdmin Exists (0.2ms)[0m  SELECT  1 AS one FROM "admins"  WHERE "admins"."username" = '' LIMIT 1
+  [1m[36mAdmin Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "admins"  WHERE "admins"."email" = 'ldsfsdjfl' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  Rendered admins/new.html.erb within layouts/application (1.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 33ms (Views: 28.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2014-12-14 15:29:29 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-14 15:29:29 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-14 15:29:29 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-14 15:29:29 -0500
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2014-12-14 15:29:29 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-14 15:29:29 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-14 15:29:29 -0500
+
+
+Started POST "/admins" for 127.0.0.1 at 2014-12-14 15:29:53 -0500
+Processing by AdminsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"NS8pp4YrBbKnafGA5xm5EdjpVDebmb7sGEsN4j1bI8M=", "admin"=>{"username"=>"12", "email"=>"ldsfsdjfl@GMAIL.COM", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create Admin"}
+Unpermitted parameters: password_confirmation
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mAdmin Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "admins"  WHERE "admins"."username" = '12' LIMIT 1[0m
+  [1m[35mAdmin Exists (0.2ms)[0m  SELECT  1 AS one FROM "admins"  WHERE "admins"."email" = 'ldsfsdjfl@GMAIL.COM' LIMIT 1
+  [1m[36mSQL (7.7ms)[0m  [1mINSERT INTO "admins" ("created_at", "email", "password_digest", "updated_at", "username") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2014-12-14 20:29:53.783088"], ["email", "ldsfsdjfl@GMAIL.COM"], ["password_digest", "$2a$10$gFQB2lRzsSp.3ypyOMplf.1C/hHn5Hlm8GaWUQ6jB6gxx4OB8xMIy"], ["updated_at", "2014-12-14 20:29:53.783088"], ["username", "12"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Redirected to http://localhost:3000/admins/1
+Completed 302 Found in 86ms (ActiveRecord: 8.8ms)
+
+
+Started GET "/admins/1" for 127.0.0.1 at 2014-12-14 15:29:53 -0500
+Processing by AdminsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAdmin Load (0.2ms)[0m  [1mSELECT  "admins".* FROM "admins"  WHERE "admins"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories"  WHERE "categories"."admin_id" = $1  [["admin_id", 1]]
+  Rendered admins/show.html.erb within layouts/application (60.2ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 90ms (Views: 87.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2014-12-14 15:29:53 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-14 15:29:53 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-14 15:29:53 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-14 15:29:53 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-14 15:29:53 -0500
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2014-12-14 15:29:53 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-14 15:29:53 -0500
+
+
+Started POST "/categories" for 127.0.0.1 at 2014-12-14 15:30:09 -0500
+Processing by CategoriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"NS8pp4YrBbKnafGA5xm5EdjpVDebmb7sGEsN4j1bI8M=", "category"=>{"admin_id"=>"1", "name"=>"Hello"}, "commit"=>"Create Category"}
+  [1m[35mAdmin Load (0.9ms)[0m  SELECT  "admins".* FROM "admins"  WHERE "admins"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Exists (0.3ms)[0m  SELECT  1 AS one FROM "categories"  WHERE "categories"."name" = 'Hello' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "categories" ("admin_id", "created_at", "name", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["admin_id", 1], ["created_at", "2014-12-14 20:30:09.612673"], ["name", "Hello"], ["updated_at", "2014-12-14 20:30:09.612673"]]
+  [1m[35m (6.3ms)[0m  COMMIT
+Redirected to http://localhost:3000/admins/1
+Completed 302 Found in 27ms (ActiveRecord: 7.9ms)
+
+
+Started GET "/admins/1" for 127.0.0.1 at 2014-12-14 15:30:09 -0500
+Processing by AdminsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAdmin Load (0.7ms)[0m  [1mSELECT  "admins".* FROM "admins"  WHERE "admins"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories"  WHERE "categories"."admin_id" = $1  [["admin_id", 1]]
+  Rendered admins/show.html.erb within layouts/application (2.7ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 30ms (Views: 27.0ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2014-12-14 15:30:09 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-14 15:30:09 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-14 15:30:09 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-14 15:30:09 -0500
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2014-12-14 15:30:09 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-14 15:30:09 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-14 15:30:09 -0500
+
+
+Started GET "/admins/1/edit" for 127.0.0.1 at 2014-12-14 15:31:26 -0500
+Processing by AdminsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mAdmin Load (0.3ms)[0m  SELECT  "admins".* FROM "admins"  WHERE "admins"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered admins/edit.html.erb within layouts/application (48.2ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 79ms (Views: 77.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2014-12-14 15:31:32 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-14 15:31:32 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-14 15:31:32 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-14 15:31:32 -0500
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2014-12-14 15:31:32 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-14 15:31:32 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-14 15:31:32 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2014-12-14 15:36:32 -0500
+Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered categories/index.html.erb within layouts/application (1.8ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 30ms (Views: 28.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-14 15:36:32 -0500
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2014-12-14 15:36:32 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-14 15:36:32 -0500
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2014-12-14 15:36:32 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-14 15:36:32 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-14 15:36:32 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-14 15:36:32 -0500
+
+
+Started GET "/categories/1/posts" for 127.0.0.1 at 2014-12-14 15:36:35 -0500
+Processing by PostsController#index as HTML
+  Parameters: {"category_id"=>"1"}
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts"  WHERE "posts"."category_id" = $1 AND "posts"."parent_id" IS NULL  [["category_id", 1]]
+  Rendered posts/index.html.erb within layouts/application (2.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 78ms (Views: 69.5ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/admins" for 127.0.0.1 at 2014-12-14 15:41:47 -0500
+Processing by AdminsController#index as HTML
+  Rendered admins/index.html.erb within layouts/application (1.7ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 22 LIMIT 1
+Completed 200 OK in 37ms (Views: 36.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-14 15:41:47 -0500
+
+
+Started GET "/assets/admins.css?body=1" for 127.0.0.1 at 2014-12-14 15:41:47 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-14 15:41:47 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-14 15:41:47 -0500
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2014-12-14 15:41:47 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-14 15:41:47 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-14 15:41:48 -0500
