@@ -44,20 +44,20 @@ float: right;
  }
 
 .container {
-  text-align:center;
-  width:50%;
+  text-align:left;
+  width:70%;
   margin: 70px auto;
   padding-top: 60px;
  }
 
 h1 {
    text-transform: uppercase;
-   text-align: center;
+   text-align: left;
    letter-spacing: 2px;
  }
 
 h2, h3{
-  text-align: center;
+  text-align: left;
  }
 
 a{
@@ -72,8 +72,7 @@ a:hover {
 
 ul, ol {
   list-style:none;
-  width: 50%;
-  margin: 10px auto;
+  margin: 10px 0 0 0;
 }
 
 li{
@@ -152,6 +151,67 @@ input[type=submit] :active {
 
 /*comment stylization*/
 .comment {
-  border-top: 1px solid rgb(216, 210, 210);
-  border-bottom: 1px solid rgb(216, 210, 210);
+/*  border-top: 1px solid rgb(216, 210, 210);
+*/ /* border-bottom: 1px solid rgb(216, 210, 210);*/
+}
+
+.vote {
+  border-radius: 10px;
+  /*height: 40px;*/
+  padding: 10px 0 10px 0;
+  margin: 10px 0 10px 0;
+  width: 90px;
+  text-align: center;
+  display: inline-block;
+  background: linear-gradient(#6600FF, #A3A3C2);
+}
+
+.votecount {
+  text-align: center;
+  display: inline-block;
+  border-radius: 90px;
+  font-size: 14px;
+  margin: 10px 0 10px 0;
+  width: 20px;
+  padding: 10px 10px 10px 10px;
+  height: 20px;
+  background: linear-gradient(#6600FF, #A3A3C2);
+}
+
+.vote a {
+  font-size: 14px;
+  color: white;
+}
+
+.edit_delete {
+  border-radius: 10px;
+  /*height: 40px;*/
+  padding: 10px 0 10px 0;
+  margin: 10px 0 10px 0;
+  width: 90px;
+  text-align: center;
+  display: inline-block;
+  background: linear-gradient(#00CCFF, #B2F0FF);
+}
+
+.edit_delete a {
+  font-size: 14px;
+  color: white;
+}
+
+
+
+.post_wrapper {
+  /*width: 90%;*/
+  /*border-top: 2px solid rgb(216, 210, 210);*/
+  border-bottom: 2px solid rgb(216, 210, 210);
+  border-left: 2px solid rgb(216, 210, 210);
+  padding-left: 20px;
+  padding-bottom: 2px;
+  /*background: radial-gradient(#EBEBFF, #F5F5FF, white);*/
+  /*float: right;*/
+}
+
+span {
+  color: red;
 }
