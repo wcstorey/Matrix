@@ -3,6 +3,12 @@ class AdminsController < ApplicationController
     @admin = ""
   end
 
+  def logout
+    session[:valid] = false
+    session[:admin_id] = nil
+    redirect_to admins_path
+  end
+
   def check
     @admin = params[:admin_id]
     if @admin == "Matrix"
@@ -29,11 +35,13 @@ class AdminsController < ApplicationController
     @admin = Admin.find_by(username: params[:username])
     if @admin && @admin.authenticate(params[:password])
       redirect_to admin_path(@admin)
+      session[:user_id] = @admin.id
     else
       flash[:danger] = "You haven't entered the matrix correctly. Your username and password do not match"
       redirect_to admins_path
     end
   end
+
 
   def new
     if session[:valid] == true

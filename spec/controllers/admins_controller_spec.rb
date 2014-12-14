@@ -31,4 +31,14 @@ context "while filling out the fields" do
     end
   end
 
+  context "while trying to signup an admin" do
+    describe "admins#new" do
+      it "redirects to the home page without the admin_key" do
+        session[:valid] = false
+      get :new
+      expect(response).to redirect_to admins_path
+      end
+    end
+  end
+
   end
