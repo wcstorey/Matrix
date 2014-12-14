@@ -55,9 +55,16 @@ class PostsController < ApplicationController
     redirect_to category_path
   end
 
+  def searched
+    p params[:search]
+    @posts_search_results = Post.search(params[:search])
+  end
+
+
+
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, :parent_id)
+    params.require(:post).permit(:title, :content, :parent_id, :search)
   end
 end

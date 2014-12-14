@@ -2,6 +2,7 @@ class CategoriesController < ApplicationController
 
   def index
     @categories = Category.all
+    # @posts_search_results = Post.search(params[:search])
   end
 
   def create
@@ -21,4 +22,5 @@ private
   def category_params
     params.require(:category).permit(:name, :admin_id)
   end
+
 end
