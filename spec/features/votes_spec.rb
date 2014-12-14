@@ -9,7 +9,7 @@ feature "Vote functionality" do
       category: category,
       content: "test" )}
 
-   scenario "user logged in search for test" do
+   scenario "downvote functionality works" do
     sign_in_as! user
     visit category_post_path(post.category_id, post.id)
     click_on 'Downvote'
