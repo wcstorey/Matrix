@@ -5,6 +5,7 @@ class CreatePosts < ActiveRecord::Migration
       t.text       :content
       t.references :category
       t.references :user
+      t.integer :vote_count, default: 0
 
       t.timestamps
     end

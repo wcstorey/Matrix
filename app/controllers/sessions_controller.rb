@@ -10,6 +10,7 @@ class SessionsController < ApplicationController
       login(user)
       redirect_to root_path
     else
+      set_error('Invalid Login Attempt.  Please Try Again.')
       render :new
     end
   end

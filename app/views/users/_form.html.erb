@@ -1,11 +1,4 @@
-
-<% if flash[:danger]  %>
-<% flash[:danger].each do |field, error| %>
-  </span>Entry for <%= field %>: <%= error.join("") %><br></span>
-  <% end %>
-<% end %><br>
-
-<%= form_for @admin, url: admins_path do |f| %>
+<%= form_for @user do |f| %>
   <%= f.label :username %>
   <%= f.text_field :username %><br>
   <br>
@@ -18,5 +11,7 @@
   <%= f.label :password_confirmation %>
   <%= f.password_field :password_confirmation %><br>
   <br>
+  <%# if @user.new_record? %>
   <%=f.submit %>
+
 <% end %>

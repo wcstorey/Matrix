@@ -17,6 +17,7 @@ class PostsController < ApplicationController
   def create
     category = Category.find(params[:category_id])
     @post = category.posts.new(post_params)
+    @post.update(user_id: current_user.id)
     if @post.save
       if @post.parent_id
         redirect_to category_post_path id: @post.parent_id
