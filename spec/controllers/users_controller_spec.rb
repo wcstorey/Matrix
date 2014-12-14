@@ -33,18 +33,10 @@ RSpec.describe UsersController, :type => :controller do
     describe "user#create" do
       it "allows a user to be created if the fields are filled out" do
         expect{
-          User.create(username: "lulu", email: "ghoul@2spooky.com", password: "ghoul")
+          User.create(username: "lulu", email: "ghoul@2spooky.com", password: "ghoul", password_confirmation: "ghoul")
         }.to change(User, :count)
       end
     end
   end
 
-  context "if proper fields aren't filled out" do
-    describe "user#create" do
-      it "redirects back to the index" do
-        post :create, { user: {username: "lulu", email: "ghoul@2spooky.com", password: "ghoul"} }
-        expect(response).to redirect_to root_path
-      end
-    end
-  end
 end
