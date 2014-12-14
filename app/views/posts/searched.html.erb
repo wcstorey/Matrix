@@ -1,9 +1,10 @@
+
 <% if current_user %>
   <%= link_to 'New Post', new_category_post_path %>
 <% end %>
 <hr>
 <%= render partial: "/search/search" %>
 <hr>
-<% @posts.each do |post| %>
+<% @posts_search_results.each do |post| %>
   <%= simple_format link_to post.title, category_post_path(id: post.id)%>
 <% end %>
