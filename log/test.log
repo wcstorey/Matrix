@@ -1318,3 +1318,72 @@ Completed 500 Internal Server Error in 1ms
   [1m[36mAdmin Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "admins"  WHERE "admins"."username" IS NULL LIMIT 1[0m
   [1m[35mAdmin Exists (0.1ms)[0m  SELECT  1 AS one FROM "admins"  WHERE "admins"."email" IS NULL LIMIT 1
   [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mAdmin Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "admins"  WHERE "admins"."username" IS NULL LIMIT 1[0m
+  [1m[35mAdmin Exists (0.2ms)[0m  SELECT  1 AS one FROM "admins"  WHERE "admins"."email" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mAdmin Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "admins"  WHERE "admins"."username" IS NULL LIMIT 1[0m
+  [1m[35mAdmin Exists (0.1ms)[0m  SELECT  1 AS one FROM "admins"  WHERE "admins"."email" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mAdmin Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "admins"  WHERE "admins"."username" IS NULL LIMIT 1[0m
+  [1m[35mAdmin Exists (0.1ms)[0m  SELECT  1 AS one FROM "admins"  WHERE "admins"."email" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by AdminsController#index as HTML
+  Rendered admins/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 5ms (Views: 5.2ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "admins"[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mAdmin Exists (9.4ms)[0m  [1mSELECT  1 AS one FROM "admins"  WHERE "admins"."username" = 'lulu' LIMIT 1[0m
+  [1m[35mAdmin Exists (0.2ms)[0m  SELECT  1 AS one FROM "admins"  WHERE "admins"."email" IS NULL LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "admins"
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "admins"[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mAdmin Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "admins"  WHERE "admins"."username" = 'lulu' LIMIT 1[0m
+  [1m[35mAdmin Exists (0.2ms)[0m  SELECT  1 AS one FROM "admins"  WHERE "admins"."email" = 'ghoul@2spooky.com' LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "admins" ("created_at", "email", "password_digest", "updated_at", "username") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2014-12-14 21:04:37.018684"], ["email", "ghoul@2spooky.com"], ["password_digest", "$2a$04$2i.XPAVKOBstDzD13oqzOeJFHi.It2qjrNw4m1nh7bdjtXNk7.Ep6"], ["updated_at", "2014-12-14 21:04:37.018684"], ["username", "lulu"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "admins"[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+Processing by AdminsController#new as HTML
+Redirected to http://test.host/admins
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by AdminsController#index as HTML
+  Rendered admins/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 5ms (Views: 4.6ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "admins"[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mAdmin Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "admins"  WHERE "admins"."username" = 'lulu' LIMIT 1[0m
+  [1m[35mAdmin Exists (0.2ms)[0m  SELECT  1 AS one FROM "admins"  WHERE "admins"."email" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "admins"
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "admins"[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mAdmin Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "admins"  WHERE "admins"."username" = 'lulu' LIMIT 1[0m
+  [1m[35mAdmin Exists (0.2ms)[0m  SELECT  1 AS one FROM "admins"  WHERE "admins"."email" = 'ghoul@2spooky.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "admins" ("created_at", "email", "password_digest", "updated_at", "username") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2014-12-14 21:04:53.453472"], ["email", "ghoul@2spooky.com"], ["password_digest", "$2a$04$gv/tgFPpqopTqkgpt00A3e2Od4IyJbEAGw7brEPMP6V77f2dblhtm"], ["updated_at", "2014-12-14 21:04:53.453472"], ["username", "lulu"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "admins"[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+Processing by AdminsController#new as HTML
+Redirected to http://test.host/admins
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
