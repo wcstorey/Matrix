@@ -53,6 +53,7 @@ class PostsController < ApplicationController
   end
 
   def searched
+    p params[:search]
     @posts_search_results = Post.search(params[:search])
   end
 
