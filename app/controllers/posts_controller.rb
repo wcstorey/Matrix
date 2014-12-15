@@ -48,9 +48,17 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    post = Post.find(params[:id])
-    post.destroy
-    redirect_to category_path
+    @post = Post.find(params[:id])
+    category = @post.category
+
+    if @post.parent.nil?
+      @post.destroy
+      redirect_to categories_path
+    else
+      @original_page = Post.find(params[:page_id])
+      @post.destroy
+      redirect_to category_post_path id: @original_page
+    end
   end
 
   def searched
