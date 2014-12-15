@@ -10,8 +10,16 @@ class PostsController < ApplicationController
   end
 
   def new
+    respond_to do |format|
+      format.html{
+    @category = Category.find(params[:category_id])
+    @post = @category.posts.new}
+      format.js{
+        p "2"*50
     @category = Category.find(params[:category_id])
     @post = @category.posts.new
+      }
+    end
   end
 
   def create
