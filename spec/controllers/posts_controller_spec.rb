@@ -3,6 +3,8 @@ require 'rails_helper'
 describe PostsController do
   let(:test_category) {FactoryGirl.create :category}
   let(:test_post) {FactoryGirl.create :post}
+  let(:user) { FactoryGirl.create(:user) }
+
 
  describe "#index" do
     it "assigns the posts to Category.posts" do
@@ -20,10 +22,12 @@ describe PostsController do
 
   describe "#create" do
     it "creates the post if valid params" do
+      allow(controller).to receive(:current_user) { user }
       expect {
         post :create,
-        :category_id => test_category.id,
-        :post => { title: 'my title', content: 'my content'}
+        category_id: test_category.id,
+        post: FactoryGirl.attributes_for(:post),
+        user_id: user.id
       }.to change { Post.count }.by(1)
     end
   end
