@@ -8,12 +8,19 @@ $(document).ready(function() {
         // console.log(post_id)
 
         // $.ajax({
-        //     type: "POST",
-        //     url: '/votes',
+        //     type: $target.attr("method"),
+        //     url: $target.attr("action"),
         //     data: {post: post_id},
-        //     // dataType: 'json'
+        //     dataType: 'json'
         // }).done(function(response) {
-        //     $('.votecount').text()
+        //     console.log(response)
+        //     console.log("HI")
+        //     $('.votecount').html("TEST")
         // });
     });
+
+    $(".downvote").on("click", function(event) {
+        event.preventDefault();
+    });
+
 });
