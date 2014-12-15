@@ -1,8 +1,8 @@
 <div class="post_wrapper">
   <% if @post.parent.nil? %>
-    <h3> at <%= @post.created_at %>, <%= @post.user.username%> wrote:</h3>
+    <h3><%= @post.time_elapsed %>, <%= @post.user.username%> wrote:</h3>
   <% else %>
-    <h3> at <%= @post.created_at %>, <%= @post.user.username%> replied to <%= @post.parent.user.username%>:</h3>
+    <h3><%= @post.time_elapsed %>, <%= @post.user.username%> replied to <%= @post.parent.user.username%>:</h3>
   <% end %>
   <h2><%= @post.title %> </h2>
   <p><%= @post.content %></p>
