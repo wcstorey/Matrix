@@ -1,2 +1,18 @@
 <h1>create a new post for <%= @category.name %></h1>
-<%= render partial: 'form' %>
+<ul>
+  <%= form_for [@category, @post] do |f| %>
+    <%= f.hidden_field :parent_id, value: params[:parent_id] %>
+    <%= f.hidden_field :page_id, value: params[:page_id] %>
+    <li>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </li>
+    <li>
+      <%= f.label :content %>
+      <%= f.text_area :content  %>
+    </li>
+    <li>
+      <%= f.submit %>
+    </li>
+  <% end %>
+</ul>
