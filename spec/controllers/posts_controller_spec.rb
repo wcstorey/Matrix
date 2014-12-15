@@ -58,4 +58,5 @@ describe PostsController do
       }.to change {Post.count}.by(-1)
     end
   end
+
 end

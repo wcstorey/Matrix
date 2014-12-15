@@ -2,6 +2,7 @@
 <ul>
   <%= form_for [@category, @post] do |f| %>
     <%= f.hidden_field :parent_id, value: params[:parent_id] %>
+    <%= f.hidden_field :page_id, value: params[:page_id] %>
     <li>
       <%= f.label :title %>
       <%= f.text_field :title %>

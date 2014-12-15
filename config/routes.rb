@@ -14,11 +14,15 @@ Rails.application.routes.draw do
   resources :admins
   post ('/admins/check') => 'admins#check'
   post ('/admins/login') => 'admins#login'
+  post ('/admins/logout') => 'admins#logout'
 
   #SESSIONS routes
   get ('/login') => 'sessions#new'
+
   post ('/login') => 'sessions#create'
   delete ('/logout') => 'sessions#destroy'
+
+  get ('/categories/:category_id/posts/searched') => 'posts#searched', :as => 'searched'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

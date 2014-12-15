@@ -2,8 +2,9 @@
 
 <%= render partial: 'show_post_contents', :locals =>{ :@post => @post }  %>
 
-
-<% @post.children.each do |comment| %>
+<% @children = @post.children %>
+<% @sorted_children = @children.sort_by { |child| -child.vote_count } %>
+<% @sorted_children.each do |comment| %>
   <%= render partial: 'show_post_contents', :locals => { :@post => comment } %>
 <% end %>
 
