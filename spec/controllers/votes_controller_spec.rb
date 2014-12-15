@@ -27,7 +27,5 @@ RSpec.describe VotesController, type: :controller do
           post: test_post.id
       }.to change { Vote.count }.by(1)
     end
-
   end
-
 end

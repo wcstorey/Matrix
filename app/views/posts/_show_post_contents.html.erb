@@ -3,13 +3,13 @@
   <h2><%= @post.title %> </h2>
   <p><%= @post.content %></p>
 
-  <div class="vote">
-    <%= link_to 'Upvote', votes_path(post: @post), method: 'POST' %>
+  <div class="vote upvote" id="<%= @post.id %>">
+    <%= link_to 'Upvote', votes_path(post: @post), method: 'POST', remote: true %>
   </div>
-  <div class="vote">
-    <%= link_to 'Downvote', vote_path(post: @post), method: 'DELETE' %>
+  <div class="vote downvote" id="<%= @post.id %>">
+    <%= link_to 'Downvote', vote_path(post: @post), method: 'DELETE', remote: true %>
   </div>
-  <div class="votecount">
+  <div class="votecount" id="<%= @post.id %>">
     <%= @post.vote_count %>
   </div>
 
