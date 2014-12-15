@@ -1,5 +1,6 @@
 <% if @post %>
 
-$("a.new_post_form").replaceWith( "<%= j render 'form' %>")
+$("#post_form").show()
+// replaceWith( "<%= j render 'form' %>")
 console.log("Hi")
 <%end%>
