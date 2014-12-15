@@ -2,6 +2,10 @@ class VotesController < ApplicationController
 
   def new
     @vote = Vote.new
+    respond_to do |format|
+      format.js
+      format.html
+    end
   end
 
   def create

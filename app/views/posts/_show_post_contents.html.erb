@@ -13,7 +13,7 @@
   <div class="vote">
     <%= link_to 'Downvote', vote_path(post: @post, :page_id => params[:id]), method: 'DELETE' %>
   </div>
-  <div class="votecount">
+  <div class="votecount" id="<%= @post.id %>">
     <%= @post.vote_count %>
   </div>
 

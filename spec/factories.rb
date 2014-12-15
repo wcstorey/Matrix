@@ -1,12 +1,13 @@
 copied_pw = Faker::Internet.password
 FactoryGirl.define do
   factory :category do
-    name Faker::Lorem.word
+    name  Faker::Lorem.word
   end
 
   factory :post do
-    title Faker::Lorem.word
+    title  Faker::Lorem.word
     content Faker::Lorem.sentence
+    category_id 1
   end
 
   factory :user do
@@ -15,4 +16,5 @@ FactoryGirl.define do
     password copied_pw
     password_confirmation copied_pw
   end
+
 end
