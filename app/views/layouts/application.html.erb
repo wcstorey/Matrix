@@ -12,6 +12,7 @@
 <div class="header">
   <% if current_user %>
       <%= link_to 'Logout', logout_path, method: 'DELETE'  %>
+      <%= link_to 'Categories', categories_path, method: 'GET'  %>
       <span><%= link_to 'Profile', edit_user_path(session[:user_id])%></span>
   <% else %>
       <a href="/users/new">Signup</a> | <a href="/login">Login</a>
