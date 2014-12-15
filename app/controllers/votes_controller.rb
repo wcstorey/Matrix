@@ -10,7 +10,7 @@ class VotesController < ApplicationController
         @post = Post.find params[:post]
         @upvote = @post.votes.find_or_initialize_by(user_id: current_user.id)
         @upvote.update_attributes(postive_vote: true)
-      
+
       if @upvote.valid?
         if @post.parent_id.nil?
           format.html{
@@ -22,7 +22,7 @@ class VotesController < ApplicationController
           vote_count(@post)
           @post.vote_count
         }
-          
+
         else
           format.html{
           vote_count(@post)
@@ -35,7 +35,10 @@ class VotesController < ApplicationController
         }
         end
       end
+
     end
+    @original_page = Post.find(params[:page_id])
+    redirect_to category_post_path(@original_page.category_id, @original_page.id)
   end
 
 
@@ -74,7 +77,7 @@ class VotesController < ApplicationController
     end
   end
 end
-  
+
 
   private
 

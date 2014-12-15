@@ -19,10 +19,11 @@ class PostsController < ApplicationController
     @post = category.posts.new(post_params)
     @post.update(user_id: current_user.id)
     if @post.save
-      if @post.parent_id
-        redirect_to category_post_path id: @post.parent_id
+      if @post.parent.nil?
+        redirect_to category_post_path id: @post
       else
-        redirect_to category_post_path id: @post.id
+        @original_page = Post.find(params[:post][:page_id])
+        redirect_to category_post_path id: @original_page
       end
     else
       render :new
@@ -47,14 +48,28 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    post = Post.find(params[:id])
-    post.destroy
-    redirect_to category_path
+    @post = Post.find(params[:id])
+
+    if @post.parent.nil?
+      @post.destroy
+      redirect_to categories_path
+    else
+      @original_page = Post.find(params[:page_id])
+      @post.destroy
+      redirect_to category_post_path id: @original_page
+    end
   end
+
+  def searched
+
+    @posts_search_results = Post.search(params[:search])
+  end
+
+
 
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, :parent_id)
+    params.require(:post).permit(:title, :content, :parent_id, :search)
   end
 end
