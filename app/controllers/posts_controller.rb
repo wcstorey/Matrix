@@ -49,7 +49,6 @@ class PostsController < ApplicationController
 
   def destroy
     @post = Post.find(params[:id])
-    category = @post.category
 
     if @post.parent.nil?
       @post.destroy
@@ -62,7 +61,7 @@ class PostsController < ApplicationController
   end
 
   def searched
-    p params[:search]
+
     @posts_search_results = Post.search(params[:search])
   end
 

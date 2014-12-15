@@ -19,7 +19,6 @@
 
 
 <% if current_user && @post.user_id == current_user.id %>
-  <div class="edit_delete"><%= link_to 'edit', edit_category_post_path(@post.category, @post) %></div>
   <div class="edit_delete"><%= link_to 'delete', category_post_path(@post.category, @post, :page_id => params[:id]), :method => :delete %></div>
 <% end %>
 
