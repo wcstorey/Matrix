@@ -37,8 +37,8 @@ class VotesController < ApplicationController
       end
 
     end
-    @original_page = Post.find(params[:page_id])
-    redirect_to category_post_path(@original_page.category_id, @original_page.id)
+    # @original_page = Post.find(params[:page_id])
+    # redirect_to category_post_path(@original_page.category_id, @original_page.id)
   end
 
 

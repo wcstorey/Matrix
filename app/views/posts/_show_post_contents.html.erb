@@ -7,11 +7,11 @@
   <h2><%= @post.title %> </h2>
   <p><%= @post.content %></p>
 
-  <div class="vote">
-    <%= link_to 'Upvote', votes_path(post: @post, :page_id => params[:id]), method: 'POST' %>
+  <div class="vote upvote" id="<%= @post.id %>">
+    <%= link_to 'Upvote', votes_path(post: @post, :page_id => params[:id]), method: 'POST', remote: true %>
   </div>
-  <div class="vote">
-    <%= link_to 'Downvote', vote_path(post: @post, :page_id => params[:id]), method: 'DELETE' %>
+  <div class="vote downvote" id="<%= @post.id %>">
+    <%= link_to 'Downvote', vote_path(post: @post, :page_id => params[:id]), method: 'DELETE', remote: true %>
   </div>
   <div class="votecount" id="<%= @post.id %>">
     <%= @post.vote_count %>
