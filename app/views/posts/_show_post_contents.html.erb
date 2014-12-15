@@ -8,10 +8,10 @@
   <p><%= @post.content %></p>
 
   <div class="vote">
-    <%= link_to 'Upvote', votes_path(post: @post), method: 'POST' %>
+    <%= link_to 'Upvote', votes_path(post: @post, :page_id => params[:id]), method: 'POST' %>
   </div>
   <div class="vote">
-    <%= link_to 'Downvote', vote_path(post: @post), method: 'DELETE' %>
+    <%= link_to 'Downvote', vote_path(post: @post, :page_id => params[:id]), method: 'DELETE' %>
   </div>
   <div class="votecount">
     <%= @post.vote_count %>

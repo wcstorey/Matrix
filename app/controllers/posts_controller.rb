@@ -12,8 +12,6 @@ class PostsController < ApplicationController
   def new
     @category = Category.find(params[:category_id])
     @post = @category.posts.new
-    p "********** new params"
-    p params
   end
 
   def create
@@ -21,8 +19,12 @@ class PostsController < ApplicationController
     @post = category.posts.new(post_params)
     @post.update(user_id: current_user.id)
     if @post.save
+      if @post.parent.nil?
+        redirect_to category_post_path id: @post
+      else
         @original_page = Post.find(params[:post][:page_id])
         redirect_to category_post_path id: @original_page
+      end
     else
       render :new
     end
