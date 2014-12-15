@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -14,6 +12,8 @@ Rails.application.routes.draw do
 
   #Admin routes
   resources :admins
+  post ('/admins/check') => 'admins#check'
+  post ('/admins/login') => 'admins#login'
 
   #SESSIONS routes
   get ('/login') => 'sessions#new'
@@ -68,10 +68,10 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-  resources :categories, only: [:index, :show] do
+  resources :categories, only: [:index, :show, :new, :create, :destroy] do
     resources :posts
   end
 
-  resources :votes, only: [:new, :create]
+  resources :votes, only: [:new, :create, :destroy]
 
 end
