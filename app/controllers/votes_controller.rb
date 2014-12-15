@@ -9,28 +9,14 @@ class VotesController < ApplicationController
   end
 
   def create
-    respond_to do |format|
-      format.html{
-      @post = Post.find params[:post]
-
-      @upvote = @post.votes.find_or_initialize_by(user_id: current_user.id)
-      @upvote.update_attributes(postive_vote: true)
-      
-      if @upvote.valid?
-        if @post.parent_id.nil?
-          vote_count(@post)
-          redirect_to category_post_path(@post.category_id, @post.id)
-          }
-          format.js{ 
-          @post = Post.find params[:post]
-          @post.votes << @upvote
-          }
-        
-        else
-          redirect_to category_post_path(@post.category_id, @post.parent_id)
-        end
-      end
+    @post = Post.find params[:post]
+    @upvote = @post.votes.find_or_initialize_by(user_id: current_user.id)
+    @upvote.update_attributes(postive_vote: true)
+    if @upvote.valid?
+      vote_count(@post)
     end
+    @original_page = Post.find(params[:page_id])
+    redirect_to category_post_path(@original_page.category_id, @original_page.id)
   end
 
   def destroy
@@ -40,11 +26,8 @@ class VotesController < ApplicationController
     if @downvote.valid?
       vote_count(@post)
     end
-    if @post.parent_id.nil?
-      redirect_to category_post_path(@post.category_id, @post.id)
-    else
-      redirect_to category_post_path(@post.category_id, @post.parent_id)
-    end
+    @original_page = Post.find(params[:page_id])
+    redirect_to category_post_path(@original_page.category_id, @original_page.id)
   end
 
   private
