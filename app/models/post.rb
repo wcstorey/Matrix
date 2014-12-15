@@ -15,6 +15,21 @@ class Post < ActiveRecord::Base
     where("content like ? OR title like ?", "%#{query}%", "%#{query}%")
   end
 
+  after_create :time_elapsed
+    
+  def time_elapsed
+    now = Time.now
+    t = now - self.created_at
+    if (t < 60)
+        return "#{t.floor} seconds ago"
+  elsif (t < 60*60)
+      return "#{(t/60).floor} minutes ago"
+    elsif(t < 60*60*60)
+      return "#{(t/3600).floor} hours ago"  
+    else  
+      return "#{(t/86400).floor} days ago"  
+    end
+  end
 #   def self.search(search)
 #   if search
 #     find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
